@@ -1,0 +1,6 @@
+<!-- $FIELD_NAME_TITLE$ Field -->
+
+<tr>
+    <td>$FIELD_NAME_TITLE$:</td>
+    <td>{!! $$MODEL_NAME_CAMEL$->$FIELD_NAME$ !!}</td>
+</tr>

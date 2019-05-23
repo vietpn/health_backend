@@ -1,0 +1,32 @@
+<?php
+return [
+    'home' => 'ホーム',
+    'date' => '日付',
+    'post_other' => '他投稿',
+    'create' => '新規作成',
+    'update' => '更新',
+    'delete_success' => '削除成功',
+    'not_delete' => '許可されません',
+    'to' => 'To',
+    'total' => '合計',
+    'action' => [
+        'name' => 'アクション',
+        'active' => '有効にする',
+        'deactive' => '無効にする',
+        'alert' => '削除しますか？',
+        'no' => 'いいえ',
+        'yes' => 'はい',
+    ],
+    'save' => '保存',
+    'cancel' => 'キャンセル',
+    'confirm' => '確認',
+    'change.password' => 'パスワード変更',
+    'roles.detail' => '役割詳細',
+    'search' => '検索',
+    'details' => '詳細',
+    'ban_nick' => '強制退会',
+    'history_point' => 'ポイント履歴',
+    'back' => '戻る',
+    'the_message_has_been_blocked' => 'メッセージがブロックされました',
+    'not_save_data' =>  'データを保存できません'
+];
