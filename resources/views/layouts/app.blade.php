@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>@yield('title','Eyeland')</title>
+    <title>Admin</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -30,7 +30,7 @@
 
             <!-- Logo -->
             <a href="#" class="logo">
-                <b>Eyeland Admin</b>
+                <b>Admin</b>
             </a>
 
             <!-- Header Navbar -->
