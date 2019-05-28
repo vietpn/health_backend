@@ -49,5 +49,22 @@ class Promotion extends Model
         
     ];
 
+    /**
+     * @inheritdoc
+     */
+    public static function boot()
+    {
+        parent::boot();
+
+        self::creating(function ($model) {
+            $model->created_at = date('Y-m-d H:i:s');
+            $model->updated_at = date('Y-m-d H:i:s');
+        });
+
+        self::updating(function ($model) {
+            $model->updated_at = date('Y-m-d H:i:s');
+
+        });
+    }
     
 }
