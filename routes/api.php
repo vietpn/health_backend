@@ -16,6 +16,7 @@ Route::group(['prefix' => 'v1', 'middleware' => ['outh_client', 'cors'], 'namesp
     Route::post('/user/login', ['as' => 'v1.user.login', 'uses' => 'UserController@login']);
 
     Route::get('/configs', 'ConfigController@index');
+    Route::get('/promotions', 'PromotionAPIController@index');
 });
 
 Route::group(['prefix' => 'v2', 'middleware' => ['auth_api:api', 'cors'], 'namespace' => 'v2'], function () {
