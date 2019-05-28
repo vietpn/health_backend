@@ -25,15 +25,6 @@ class ProfileRepositoryEloquent extends BaseRepository implements ProfileReposit
         return User::class;
     }
 
-    protected $fillable = [
-        'name', 'email', 'password', 'description', 'weight', 'height',
-        'gender', 'gender_visivility', 'birthday_visivility', 'blood_type',
-        'zodiac_sign', 'hometown', 'personnality', 'special_skills',
-        'hobbies', 'my_current_obsession', 'achievement', 'favorite_place',
-        'favorite_food', 'favorite_celebrity', 'favorite_music', 'favorite_sport',
-        'favorite_word', 'hairstyle', 'language'
-    ];
-
     public function checkLogIn($username, $password)
     {
         if (\Auth::attempt(['username' => $username, 'password' => $password])) {
