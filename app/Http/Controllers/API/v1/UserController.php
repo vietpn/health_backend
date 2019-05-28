@@ -45,8 +45,6 @@ class UserController extends AppBaseController
                     [
                         'email' => $email,
                         'password' => $password,
-                        'status' => BaseModel::STATUS_ENABLE,
-                        'is_deleted' => STATUS_NONE_DELETED
                     ]
                 );
             } else {
@@ -54,8 +52,6 @@ class UserController extends AppBaseController
                     [
                         'username' => $email,
                         'password' => $password,
-                        'status' => BaseModel::STATUS_ENABLE,
-                        'is_deleted' => STATUS_NONE_DELETED
                     ]);
             }
             if (Auth::check()) {
