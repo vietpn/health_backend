@@ -31,7 +31,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/login', ['as' => 'backend.postLogin', 'uses' => 'Backend\HomeController@postLogin']);
     });
 
-    Route::group(['middleware' => ['SentinelCheck', 'sentinelHasAccess']], function () {
+    Route::group(['middleware' => ['SentinelCheck']], function () {
 
         Route::group(['as' => 'backend.'], function () {
             Route::resource('iapAndroids', 'Backend\IapAndroidController');
