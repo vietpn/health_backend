@@ -34,9 +34,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::group(['middleware' => ['SentinelCheck']], function () {
 
         Route::group(['as' => 'backend.'], function () {
-            //config
-            Route::resource('configs', 'Backend\ConfigController');
-
+            
             //Promotion
             Route::resource('promotions', 'Backend\PromotionController');
 
