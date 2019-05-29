@@ -3,9 +3,9 @@
 namespace App\Http\Requests\Backend;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Config;
+use App\Models\Promotion;
 
-class UpdateConfigRequest extends FormRequest
+class CreatePromotionRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class UpdateConfigRequest extends FormRequest
      */
     public function rules()
     {
-        return Config::$rules;
+        return Promotion::$rules;
     }
 }

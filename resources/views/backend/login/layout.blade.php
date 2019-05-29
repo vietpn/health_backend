@@ -32,9 +32,10 @@
 <body class="hold-transition login-page">
 <div class="login-box" style="width: 480px">
     <div class="login-logo">
-        <b>Quản Lý Cửa Hàng Thuốc</b>
+        <a href="../../index2.html"><b>{!! trans('app.login') !!}</b></a>
     </div>
     <div class="login-box-body" style="width: 520px">
+        <p class="login-box-msg">{!! trans('app.sign.in.to.start') !!}</p>
         @if($errors->any())
             <div class="alert notify alert-danger alert-dismissible">
                 {{ trans('messages.error') }}
@@ -47,24 +48,24 @@
         @endif
         {!! Form::open(['url'=>route('backend.postLogin'),'role'=>'form']) !!}
         <div class="form-group has-feedback">
-            {!! Form::text('email',Request::old('email'),['class'=>'form-control','placeholder'=>'Email']) !!}
+            {!! Form::text('email',Request::old('email'),['class'=>'form-control','placeholder'=>'メールアドレス入力してください...']) !!}
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-            {!! Form::password('password',['class'=>'form-control','placeholder'=>"Password"]) !!}
+            {!! Form::password('password',['class'=>'form-control','placeholder'=>"パスワードを入力してください..."]) !!}
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <div class="row">
             <div class="col-xs-4" style="margin-left: 20px">
                 <div class="checkbox icheck">
                     <label>
-                        <input type="checkbox" name="remmember"> Nhớ mật khẩu
+                        <input type="checkbox" name="remmember"> {!! trans('app.remember.password') !!}
                     </label>
                 </div>
             </div>
             <!-- /.col -->
             <div class="col-xs-4">
-                {!! Form::submit("Đăng Nhập",['class'=>'btn btn-primary btn-block btn-flat']) !!}
+                {!! Form::submit("ログイン",['class'=>'btn btn-primary btn-block btn-flat']) !!}
             </div>
             <!-- /.col -->
         </div>
