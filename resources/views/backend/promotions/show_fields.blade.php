@@ -5,20 +5,19 @@
     <td>{!! $promotion->id !!}</td>
 </tr>
 
+<!-- Img Path Field -->
+
+<tr>
+    <td>Img Path:</td>
+    <td>{!! $promotion->img_path !!}</td>
+</tr>
+
 
 <!-- Content Field -->
 
 <tr>
     <td>Content:</td>
     <td>{!! $promotion->content !!}</td>
-</tr>
-
-
-<!-- Img Path Field -->
-
-<tr>
-    <td>Img Path:</td>
-    <td>{!! $promotion->img_path !!}</td>
 </tr>
 
 

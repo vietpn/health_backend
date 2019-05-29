@@ -1,13 +1,7 @@
-<!-- Content Field -->
-<div class="form-group">
-    {!! Form::label('content', 'Nội Dung:') !!}
-    {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
-</div>
-
 <!-- Img Path Field -->
 <div class="form-group">
     {!! Form::label('image', 'Ảnh:') !!}
-    {!! Form::file('image', null, ['class' => 'form-control', 'accept' => 'image/*']) !!}
+    {!! Form::file('image', ['class' => 'form-control', 'accept' => 'image/*']) !!}
     <?php
     if ( isset($promotion) && !empty($promotion->img_path)) {
         echo Html::image(\App\Models\BaseModel::getImage( $promotion->img_path) , '',['style' => 'width:80px; height:80px']);
@@ -16,6 +10,12 @@
         echo '<img class="thumbnail" src="http://placehold.it/100x100" alt="" width="100" height="100" />';
     }
     ?>
+</div>
+
+<!-- Content Field -->
+<div class="form-group">
+    {!! Form::label('content', 'Nội Dung:') !!}
+    {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Code Field -->
