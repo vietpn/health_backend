@@ -1,11 +1,11 @@
 <table class="table table-responsive table-striped table-bordered table-hover" id="promotions-table">
     <thead>
-        <th>Content</th>
-        <th>Img Path</th>
-        <th>Code</th>
-        <th>Value</th>
-        <th>Created At</th>
-        <th>Updated At</th>
+        <th>Nội Dung</th>
+        <th>Ảnh</th>
+        <th>Mã</th>
+        <th>Giá Trị</th>
+        <th>Ngày Tạo</th>
+        <th>Ngày Cập Nhật</th>
         <th colspan="3">Action</th>
     </thead>
     <tbody>

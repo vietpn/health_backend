@@ -81,8 +81,4 @@ define('REPLY', 1);//trả lời lại tin nhắn
 define('STATUS_DELETED', 1);
 define('STATUS_NONE_DELETED', 0);
 
-//key cache redis
-define('NG_WORD', 'NG_WORD');//cache ngWord
-
-
 ?>

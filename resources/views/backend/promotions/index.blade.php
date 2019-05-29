@@ -24,7 +24,7 @@
                 <div class="clearfix"></div>
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title"><i class="fa fa-home"></i>Promotions</h3>
+                        <h3 class="box-title"><i class="fa fa-home"></i>Khuyến Mại</h3>
                     </div>
                     <div class="box-body">
                         <p>

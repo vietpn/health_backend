@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use Illuminate\Support\Facades\Input;
 
 class PromotionController extends AppBaseController
 {
@@ -58,6 +59,16 @@ class PromotionController extends AppBaseController
     public function store(CreatePromotionRequest $request)
     {
         $input = $request->all();
+        $file = Input::file('img_path');
+        var_dump($file);die;
+        if (isset($file) && $file->isValid()){
+            $destinationPath = 'uploads/avatar/' . date("Y/m/d/H");
+            $extension = $file->getClientOriginalExtension();
+            $fileName = substr(md5(rand()), 0, 16) . "." . $extension;
+            $file->move(storage_path(STORAGE_PATH) . '/'. $destinationPath, $fileName);
+            $input['img_path'] = $destinationPath.'/'.$fileName;
+            var_dump($input);die;
+        }
 
         $promotion = $this->promotionRepository->create($input);
 
