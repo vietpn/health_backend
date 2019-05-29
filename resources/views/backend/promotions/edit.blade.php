@@ -13,7 +13,7 @@
                <h3 class="box-title"><i class="fa fa-home"></i>Update #<?=$promotion->id?></h3>
            </div>
            <div class="box-body">
-               {!! Form::model($promotion, ['route' => ['backend.promotions.update', $promotion->id], 'method' => 'patch']) !!}
+               {!! Form::model($promotion, ['route' => ['backend.promotions.update', $promotion->id], 'method' => 'patch', 'files' => true]) !!}
 
                     @include('backend.promotions.fields')
 

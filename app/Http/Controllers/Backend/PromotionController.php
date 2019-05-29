@@ -134,7 +134,18 @@ class PromotionController extends AppBaseController
             return redirect(route('backend.promotions.index'));
         }
 
-        $promotion = $this->promotionRepository->update($request->all(), $id);
+        $input = $request->all();
+        $file = Input::file('image');
+
+        if (isset($file) && $file->isValid()){
+            $destinationPath = 'uploads/promotion/' . date("Y/m/d/H");
+            $extension = $file->getClientOriginalExtension();
+            $fileName = substr(md5(rand()), 0, 16) . "." . $extension;
+            $file->move(storage_path(STORAGE_PATH) . '/'. $destinationPath, $fileName);
+            $input['img_path'] = $destinationPath.'/'.$fileName;
+        }
+
+        $promotion = $this->promotionRepository->update($input, $id);
 
         Flash::success('Promotion updated successfully.');
 
