@@ -54,7 +54,7 @@ class HomeController extends Controller
                 return Redirect::route('backend.login')->withErrors($errors)->withInput();
             };
             Session::put('email',$email);
-            return Redirect::route('backend.promotions.index');
+            return Redirect::route('backend.profiles.index');
         }
     }
 

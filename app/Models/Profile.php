@@ -54,6 +54,4 @@ class Profile extends Model
     public static $rules = [
         
     ];
-
-    
 }

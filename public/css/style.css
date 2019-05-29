@@ -1,22 +1,5 @@
-.choose-profile ul li.active a {
-    background-color: #2ab27b;
-    color: #ffffff;
-    font-weight: bold;
-}
-
-.choose-profile #search_member,
-.choose-profile #search_store {
-    padding: 10px;
-}
-
 .img-default {
     font-size: 85px;
-}
-
-#profiles-table {
-    margin: auto;
-    padding: 0;
-    width: 70%;
 }
 
 .borderless td, .borderless th, .borderless tr {
@@ -37,13 +20,6 @@
 
 .label-text-right {
     text-align: right;
-}
-
-.ajax_loader {
-    background: url("../img/ajax-loader_blue.gif") no-repeat center center transparent;
-    width: 100%;
-    position: fixed;
-    height: 100%;
 }
 
 .list-ban-nick tbody tr td, .list-ban-nick tbody tr th {

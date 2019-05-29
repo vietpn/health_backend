@@ -58,7 +58,7 @@ class UserController extends AppBaseController
                 $user = $this->profileRepository->getInfor();
                 //update last login
                 event(new UserLogin($user->id));
-                $user['token'] = $user->createToken('eyeland')->accessToken;
+                $user['token'] = $user->createToken('health')->accessToken;
                 //Get Oauth Access tokens moi nhat
                 $this->profileRepository->updateAccessToken($user);
 
