@@ -52,7 +52,9 @@ class Profile extends Model
      * @var array
      */
     public static $rules = [
-        
+        'username' => 'required|max:255|unique_name',
+        'email' => 'required|email|unique_email',
+        'password' => 'required',
     ];
 
     public function setPasswordAttribute($value)

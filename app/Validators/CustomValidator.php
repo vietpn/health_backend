@@ -116,13 +116,11 @@ class CustomValidator extends Validator
     }
 
     public function validateUniqueName($attribute, $value, $parameters){
-        $countUser = User::where('name',trim($value))
-            ->where('is_deleted',STATUS_NONE_DELETED)->count();
+        $countUser = User::where('username',trim($value))->count();
         if($countUser > 0){
             return false;
         }else{
-            $countUserDelete = User::where('name',trim($value))
-                ->where('status',ENABLE)->count();
+            $countUserDelete = User::where('username',trim($value))->count();
             if($countUserDelete > 0){
                 return false;
             }else{
@@ -131,14 +129,12 @@ class CustomValidator extends Validator
         }
     }
     public function validateUniqueEmail($attribute, $value, $parameters){
-        $countUser = User::where('email',trim($value))
-            ->where('is_deleted',STATUS_NONE_DELETED)->count();
+        $countUser = User::where('email',trim($value))->count();
 
         if($countUser > 0){
             return false;
         }else{
-            $countUserDelete = User::where('email',trim($value))
-                ->where('status',ENABLE)->count();
+            $countUserDelete = User::where('email',trim($value))->count();
             if($countUserDelete > 0){
                 return false;
             }else{
