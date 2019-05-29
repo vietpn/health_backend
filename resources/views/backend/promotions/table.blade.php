@@ -12,8 +12,7 @@
     @foreach($promotions as $promotion)
         <tr>
             <td>{!! $promotion->content !!}</td>
-            <td>{!! $promotion->img_path !!}</td>
-            <td>{!! $promotion->code !!}</td>
+            <td>{!! Html::image(\App\Models\BaseModel::getImage( $promotion->img_path) , '',['style' => 'width:80px; height:80px']); !!}</td><td>{!! $promotion->code !!}</td>
             <td>{!! $promotion->value !!}</td>
             <td>{!! $promotion->created_at !!}</td>
             <td>{!! $promotion->updated_at !!}</td>

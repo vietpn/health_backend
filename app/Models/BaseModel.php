@@ -13,25 +13,12 @@ use Illuminate\Database\Eloquent\Model;
  */
 class BaseModel extends Model
 {
-    const STATUS_ENABLE = 1;
-    const STATUS_DISABLE = 0;
-
-    public static function getStatusList()
+    public static function getImage($src, $width = 80, $height = 80)
     {
-        return [
-            self::STATUS_ENABLE => trans("app.enable"),
-            self::STATUS_DISABLE => trans("app.disable")
-        ];
-    }
-
-    public static function getStatusName($status)
-    {
-        $arr = BaseModel::getStatusList();
-        if (isset($arr[$status])) {
-            return $arr[$status];
-        } else {
-            return "N/A";
+        if (empty($src)) {
+            return "http://placehold.it/" . $width . "x" . $height;
         }
+        return 'storage/' . $src;
     }
 
 }
