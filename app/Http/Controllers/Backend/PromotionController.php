@@ -62,7 +62,7 @@ class PromotionController extends AppBaseController
         $file = Input::file('image');
 
         if (isset($file) && $file->isValid()){
-            $destinationPath = 'uploads/avatar/' . date("Y/m/d/H");
+            $destinationPath = 'uploads/promotion/' . date("Y/m/d/H");
             $extension = $file->getClientOriginalExtension();
             $fileName = substr(md5(rand()), 0, 16) . "." . $extension;
             $file->move(storage_path(STORAGE_PATH) . '/'. $destinationPath, $fileName);
