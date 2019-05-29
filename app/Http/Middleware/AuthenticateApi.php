@@ -40,16 +40,11 @@ class AuthenticateApi
      */
     public function handle($request, Closure $next, ...$guards)
     {
-
-
         $message = $this->authenticate($guards);
         if(!empty($message)){
             return $message;
         }
-        $user= \Auth::user();
-        if($user->status == BaseModel::STATUS_DISABLE){
-            return $this->baseApi->sendError("Your account has been banned",403);
-        }
+
         return $next($request);
     }
 

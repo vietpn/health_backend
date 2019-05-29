@@ -94,7 +94,6 @@ class ProfileRepositoryEloquent extends BaseRepository implements ProfileReposit
             return [
                 'success' => false,
                 'data' => $ex->getMessage(),
-
             ];
         }
 
