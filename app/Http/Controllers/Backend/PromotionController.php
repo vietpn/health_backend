@@ -83,7 +83,7 @@ class PromotionController extends AppBaseController
             return redirect(route('backend.promotions.index'));
         }
 
-        return view('promotions.show')->with('promotion', $promotion);
+        return view('backend.promotions.show')->with('promotion', $promotion);
     }
 
     /**
@@ -103,7 +103,7 @@ class PromotionController extends AppBaseController
             return redirect(route('backend.promotions.index'));
         }
 
-        return view('promotions.edit')->with('promotion', $promotion);
+        return view('backend.promotions.edit')->with('promotion', $promotion);
     }
 
     /**
