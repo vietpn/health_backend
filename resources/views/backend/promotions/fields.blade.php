@@ -6,16 +6,8 @@
 
 <!-- Img Path Field -->
 <div class="form-group">
-  {!! Form::label('img_path', 'Ảnh:') !!}
-  {!! Form::file('img_path', ['class' => 'form-control']) !!}
-  <?php
-  if ( isset($promotion) && !empty($promotion->img_path)) {
-      echo Html::image(\App\Models\BaseModel::getImage( $promotion->img_path) , '',['style' => 'width:80px; height:80px']);
-      echo "<br/>";
-  } else {
-      echo '<img class="thumbnail" src="http://placehold.it/100x100" alt="" width="100" height="100" />';
-  }
-  ?>
+    {!! Form::label('image', 'Ảnh:') !!}
+    {!! Form::file('image', null, ['class' => 'form-control', 'accept' => 'image/*']) !!}
 </div>
 
 <!-- Code Field -->
