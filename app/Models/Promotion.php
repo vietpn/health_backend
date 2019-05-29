@@ -16,8 +16,6 @@ class Promotion extends Model
     
     public $timestamps = false;
 
-
-
     public $fillable = [
         'content',
         'img_path',
@@ -48,6 +46,17 @@ class Promotion extends Model
     public static $rules = [
         
     ];
+
+    /**
+     * @inheritdoc
+     */
+    public function getImgPathAttribute()
+    {
+        if (strpos(\Route::getCurrentRoute()->getActionName(), 'Http\\Controllers\\API') !== false) {
+            $this->attributes['img_path'] = env('APP_STORAGE_URL', '') . $this->attributes['img_path'];
+        }
+        return $this->attributes['img_path'];
+    }
 
     /**
      * @inheritdoc
