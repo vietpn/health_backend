@@ -22,12 +22,12 @@
     <div class="content">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title"><i class="fa fa-home"></i>{!! __('app.view') !!} #{!! $profile->id !!}</h3>
+                <h3 class="box-title"><i class="fa fa-home"></i>Chi tiết #<?=$profile->id?></h3>
             </div>
             <div class="box-body">
                 <div class="row" style="padding-left: 20px; padding-right: 20px">
                 <table class="table table-striped table-bordered table-hover">
-                    @include('backend.profiles.show.show_fields')
+                    @include('backend.profiles.show_fields')
                 </table>
                     <a href="{!! route('backend.profiles.index') !!}" class="btn btn-default">Back</a>
                 </div>

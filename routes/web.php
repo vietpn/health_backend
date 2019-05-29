@@ -38,6 +38,10 @@ Route::group(['prefix' => 'admin'], function () {
             //Promotion
             Route::resource('promotions', 'Backend\PromotionController');
 
+            //Profile
+            Route::resource('profiles', 'Backend\ProfileController');
+
+
         });
         Route::get('/unauthorized', ['as' => 'admin.backend.unauthorized', 'role' => ['backend'], 'uses' => 'Backend\HomeController@getUnauthorized']);
         Route::get('/logout', array('as' => 'backend.logout', 'role' => ['backend'], 'uses' => "Backend\HomeController@getLogout"));
