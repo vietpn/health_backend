@@ -94,6 +94,8 @@ class OrderController extends AppBaseController
             return $this->sendError('Order not found');
         }
 
+        $order['order_detail'] = $order->orderDetail()->get();
+
         return $this->sendResponse($order->toArray(), 'Order retrieved successfully');
     }
 

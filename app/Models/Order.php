@@ -49,6 +49,15 @@ class Order extends Model
         
     ];
 
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
+    public function orderDetail()
+    {
+        return $this->hasMany(\App\Models\OrderDetail::class);
+    }
+
     /**
      * @inheritdoc
      */
