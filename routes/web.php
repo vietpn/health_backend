@@ -41,9 +41,15 @@ Route::group(['prefix' => 'admin'], function () {
             //Profile
             Route::resource('profiles', 'Backend\ProfileController');
 
-
+            //Feedback
+            Route::get('backend/feedback', ['as'=> 'feedback.index', 'uses' => 'Backend\FeedbackController@index']);
+            Route::delete('backend/feedback/{feedback}', ['as'=> 'feedback.destroy', 'uses' => 'Backend\FeedbackController@destroy']);
+            Route::get('backend/feedback/{feedback}', ['as'=> 'feedback.show', 'uses' => 'Backend\FeedbackController@show']);
         });
         Route::get('/unauthorized', ['as' => 'admin.backend.unauthorized', 'role' => ['backend'], 'uses' => 'Backend\HomeController@getUnauthorized']);
         Route::get('/logout', array('as' => 'backend.logout', 'role' => ['backend'], 'uses' => "Backend\HomeController@getLogout"));
     });
 });
+
+
+
