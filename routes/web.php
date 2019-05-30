@@ -45,11 +45,23 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('backend/feedback', ['as'=> 'feedback.index', 'uses' => 'Backend\FeedbackController@index']);
             Route::delete('backend/feedback/{feedback}', ['as'=> 'feedback.destroy', 'uses' => 'Backend\FeedbackController@destroy']);
             Route::get('backend/feedback/{feedback}', ['as'=> 'feedback.show', 'uses' => 'Backend\FeedbackController@show']);
+
+            // Product
+            Route::get('backend/products', ['as'=> 'products.index', 'uses' => 'Backend\ProductController@index']);
+            Route::post('backend/products', ['as'=> 'products.store', 'uses' => 'Backend\ProductController@store']);
+            Route::get('backend/products/create', ['as'=> 'products.create', 'uses' => 'Backend\ProductController@create']);
+            Route::put('backend/products/{products}', ['as'=> 'products.update', 'uses' => 'Backend\ProductController@update']);
+            Route::patch('backend/products/{products}', ['as'=> 'products.update', 'uses' => 'Backend\ProductController@update']);
+            Route::delete('backend/products/{products}', ['as'=> 'products.destroy', 'uses' => 'Backend\ProductController@destroy']);
+            Route::get('backend/products/{products}', ['as'=> 'products.show', 'uses' => 'Backend\ProductController@show']);
+            Route::get('backend/products/{products}/edit', ['as'=> 'products.edit', 'uses' => 'Backend\ProductController@edit']);
         });
         Route::get('/unauthorized', ['as' => 'admin.backend.unauthorized', 'role' => ['backend'], 'uses' => 'Backend\HomeController@getUnauthorized']);
         Route::get('/logout', array('as' => 'backend.logout', 'role' => ['backend'], 'uses' => "Backend\HomeController@getLogout"));
     });
 });
+
+
 
 
 
