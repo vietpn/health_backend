@@ -27,6 +27,14 @@ Route::group(['prefix' => 'v2', 'middleware' => ['auth_api:api', 'cors'], 'names
     Route::post('feedback', 'FeedbackController@store');
     Route::get('feedback/{feedback}', 'FeedbackController@show');
 
+    // Orders
+    Route::get('orders', 'OrderController@index');
+    Route::post('orders', 'OrderController@store');
+    Route::get('orders/{orders}', 'OrderController@show');
+    Route::put('orders/{orders}', 'OrderController@update');
+    Route::patch('orders/{orders}', 'OrderController@update');
+    Route::delete('orders{orders}', 'OrderController@destroy');
+
     Route::get('/user/about', ['as' => 'v2.user.about', 'uses' => 'UserController@about']);
     Route::post('/user/upload-avatar', ['as' => 'v2.user.uploadAvatar', 'uses' => 'UserController@uploadAvatar']);
     Route::post('/user/update-profile', ['as' => 'v2.user.updateProfile', 'uses' => 'UserController@updateProfile']);
@@ -134,3 +142,10 @@ Route::group(['prefix' => 'v2', 'middleware' => ['auth_api:api', 'cors'], 'names
     Route::get('/user/pin-history',[ 'as' => 'costume.update', 'uses' => 'ProfilePinHistoryController@pinHistoryProfile']);
 
 });
+
+Route::get('api/orders', 'Api\OrderAPIController@index');
+Route::post('api/orders', 'Api\OrderAPIController@store');
+Route::get('api/orders/{orders}', 'Api\OrderAPIController@show');
+Route::put('api/orders/{orders}', 'Api\OrderAPIController@update');
+Route::patch('api/orders/{orders}', 'Api\OrderAPIController@update');
+Route::delete('api/orders{orders}', 'Api\OrderAPIController@destroy');
