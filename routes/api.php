@@ -20,6 +20,15 @@ Route::group(['prefix' => 'v1', 'middleware' => ['outh_client', 'cors'], 'namesp
 });
 
 Route::group(['prefix' => 'v2', 'middleware' => ['auth_api:api', 'cors'], 'namespace' => 'v2'], function () {
+
+    // Feedback
+    Route::get('feedback', 'FeedbackAPIController@index');
+    Route::post('feedback', 'FeedbackAPIController@store');
+    Route::get('feedback/{feedback}', 'FeedbackAPIController@show');
+    Route::put('feedback/{feedback}', 'FeedbackAPIController@update');
+    Route::patch('feedback/{feedback}', 'FeedbackAPIController@update');
+    Route::delete('feedback{feedback}', 'FeedbackAPIController@destroy');
+
     Route::get('/user/about', ['as' => 'v2.user.about', 'uses' => 'UserController@about']);
     Route::post('/user/upload-avatar', ['as' => 'v2.user.uploadAvatar', 'uses' => 'UserController@uploadAvatar']);
     Route::post('/user/update-profile', ['as' => 'v2.user.updateProfile', 'uses' => 'UserController@updateProfile']);
