@@ -1,6 +1,6 @@
 <table class="table table-responsive table-striped table-bordered table-hover" id="feedback-table">
     <thead>
-        <th>Profile Id</th>
+        <th>Username</th>
         <th>Content</th>
         <th>Img Path</th>
         <th>Created At</th>
@@ -10,7 +10,7 @@
     <tbody>
     @foreach($feedback as $feedback)
         <tr>
-            <td>{!! $feedback->profile_id !!}</td>
+            <td>{!! $feedback->username !!}</td>
             <td>{!! $feedback->content !!}</td>
             <td>{!! $feedback->img_path !!}</td>
             <td>{!! $feedback->created_at !!}</td>

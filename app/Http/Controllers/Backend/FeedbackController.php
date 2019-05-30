@@ -8,6 +8,7 @@ use App\Repositories\Backend\FeedbackRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use DB;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -29,10 +30,13 @@ class FeedbackController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $this->feedbackRepository->pushCriteria(new RequestCriteria($request));
-        $feedback = $this->feedbackRepository->all();
+        $query = DB::table('e_feedback')
+            ->orderBy('e_feedback.id', 'DESC')
+            ->leftJoin('e_profile', 'e_profile.id', '=', 'e_feedback.profile_id')
+            ->select('e_feedback.*', 'e_profile.username');
 
-        /*$feedback = Feedback::paginate(15);*/
+        // pagination
+        $feedback = $query->paginate(5);
 
         return view('backend.feedback.index')
             ->with('feedback', $feedback);
