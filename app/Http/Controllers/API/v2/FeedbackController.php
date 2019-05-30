@@ -17,7 +17,7 @@ use Response;
  * @package App\Http\Controllers\API
  */
 
-class FeedbackAPIController extends AppBaseController
+class FeedbackController extends AppBaseController
 {
     /** @var  FeedbackRepository */
     private $feedbackRepository;
@@ -54,7 +54,10 @@ class FeedbackAPIController extends AppBaseController
      */
     public function store(CreateFeedbackAPIRequest $request)
     {
+        $profile = \Auth::user();
+
         $input = $request->all();
+        $input['profile_id'] = $profile->id;
 
         $feedback = $this->feedbackRepository->create($input);
 
