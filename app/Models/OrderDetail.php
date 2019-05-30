@@ -5,24 +5,23 @@ namespace App\Models;
 use Eloquent as Model;
 
 /**
- * Class Order
- * @package App\Models\Api
- * @version May 30, 2019, 3:47 pm +07
+ * Class OrderDetail
+ * @package App\Models
+ * @version May 30, 2019, 4:11 pm +07
  */
-class Order extends Model
+class OrderDetail extends Model
 {
 
-    public $table = 'e_order';
+    public $table = 'e_order_detail';
     
     public $timestamps = false;
 
 
 
     public $fillable = [
-        'profile_id',
-        'total_price',
-        'promo_code',
-        'status',
+        'order_id',
+        'product_id',
+        'amount',
         'created_at',
         'updated_at'
     ];
@@ -34,10 +33,9 @@ class Order extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'profile_id' => 'integer',
-        'total_price' => 'float',
-        'promo_code' => 'string',
-        'status' => 'boolean'
+        'order_id' => 'integer',
+        'product_id' => 'integer',
+        'amount' => 'integer'
     ];
 
     /**
