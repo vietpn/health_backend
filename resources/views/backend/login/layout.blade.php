@@ -48,11 +48,11 @@
         @endif
         {!! Form::open(['url'=>route('backend.postLogin'),'role'=>'form']) !!}
         <div class="form-group has-feedback">
-            {!! Form::text('email',Request::old('email'),['class'=>'form-control','placeholder'=>'メールアドレス入力してください...']) !!}
+            {!! Form::text('email',Request::old('email'),['class'=>'form-control','placeholder'=>'email']) !!}
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-            {!! Form::password('password',['class'=>'form-control','placeholder'=>"パスワードを入力してください..."]) !!}
+            {!! Form::password('password',['class'=>'form-control','placeholder'=>"password"]) !!}
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <div class="row">
@@ -65,7 +65,7 @@
             </div>
             <!-- /.col -->
             <div class="col-xs-4">
-                {!! Form::submit("ログイン",['class'=>'btn btn-primary btn-block btn-flat']) !!}
+                {!! Form::submit("Login",['class'=>'btn btn-primary btn-block btn-flat']) !!}
             </div>
             <!-- /.col -->
         </div>
