@@ -16,4 +16,6 @@ interface ProfileRepository extends RepositoryInterface
 
     public function getByUserId($id);
 
+    public function changePassowrd($request);
+
 }

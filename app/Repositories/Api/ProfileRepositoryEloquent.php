@@ -73,7 +73,6 @@ class ProfileRepositoryEloquent extends BaseRepository implements ProfileReposit
 
 
     }
-
     public function getInfor()
     {
         // TODO: Implement getInfor() method.
