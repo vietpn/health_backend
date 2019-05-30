@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\API\Api;
+namespace App\Http\Requests\API;
 
-use App\Models\Api\Order;
+use App\Models\Order;
 use InfyOm\Generator\Request\APIRequest;
 
 class UpdateOrderAPIRequest extends APIRequest

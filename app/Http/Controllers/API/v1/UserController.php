@@ -39,6 +39,7 @@ class UserController extends AppBaseController
     {
         try {
             $email = $request->input('email', "");
+            $username = $request->input('username', "");
             $password = $request->input('password', "");
             if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 Auth::attempt(
@@ -50,7 +51,7 @@ class UserController extends AppBaseController
             } else {
                 Auth::attempt(
                     [
-                        'username' => $email,
+                        'username' => $username,
                         'password' => $password,
                     ]);
             }

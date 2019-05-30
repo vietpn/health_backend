@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\API\v2;
 
-use App\Http\Requests\API\Api\CreateOrderAPIRequest;
-use App\Http\Requests\API\Api\UpdateOrderAPIRequest;
+use App\Http\Requests\API\CreateOrderAPIRequest;
+use App\Http\Requests\API\UpdateOrderAPIRequest;
 use App\Models\Order;
 use App\Repositories\Api\OrderRepository;
 use Illuminate\Http\Request;
@@ -53,7 +53,10 @@ class OrderController extends AppBaseController
      */
     public function store(CreateOrderAPIRequest $request)
     {
+        $profile = \Auth::user();
+
         $input = $request->all();
+        $input['profile_id'] = $profile->id;
 
         $orders = $this->orderRepository->create($input);
 
