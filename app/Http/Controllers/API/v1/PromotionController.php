@@ -12,7 +12,7 @@ use Response;
  * @package App\Http\Controllers\API
  */
 
-class PromotionAPIController extends AppBaseController
+class PromotionController extends AppBaseController
 {
     /** @var  PromotionRepository */
     private $promotionRepository;
