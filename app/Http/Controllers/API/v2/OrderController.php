@@ -17,7 +17,6 @@ use Response;
  * Class OrderController
  * @package App\Http\Controllers\API\Api
  */
-
 class OrderController extends AppBaseController
 {
     /** @var  OrderRepository */
@@ -60,16 +59,17 @@ class OrderController extends AppBaseController
         $input['profile_id'] = $profile->id;
 
         $orders = $this->orderRepository->create($input);
-        if(!empty($input['order_detail'])){
+        if (!empty($input['order_detail'])) {
             $details = json_decode($input['order_detail'], true);
-            if($details){
-                foreach ($details as $detail){
-                    if(isset($detail['product_id']) && isset($detail['amount']))
-                    $order_detail = new OrderDetail();
-                    $order_detail->product_id = $detail['product_id'];
-                    $order_detail->amount = $detail['amount'];
-                    $order_detail->order_id = $orders->id;
-                    $order_detail->save();
+            if ($details) {
+                foreach ($details as $detail) {
+                    if (isset($detail['product_id']) && isset($detail['amount'])) {
+                        $order_detail = new OrderDetail();
+                        $order_detail->product_id = $detail['product_id'];
+                        $order_detail->amount = $detail['amount'];
+                        $order_detail->order_id = $orders->id;
+                        $order_detail->save();
+                    }
                 }
             }
         }

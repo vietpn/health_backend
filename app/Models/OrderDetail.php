@@ -21,6 +21,7 @@ class OrderDetail extends Model
     public $fillable = [
         'order_id',
         'product_id',
+        'product_name',
         'amount',
         'created_at',
         'updated_at'
@@ -35,6 +36,7 @@ class OrderDetail extends Model
         'id' => 'integer',
         'order_id' => 'integer',
         'product_id' => 'integer',
+        'product_name' => 'string',
         'amount' => 'integer'
     ];
 
