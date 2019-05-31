@@ -18,7 +18,7 @@
 
 <tr>
     <td>Total Price:</td>
-    <td>{!! $order->total_price !!}</td>
+    <td>{!! \App\Define\Systems::formatPrice($order->total_price) !!}</td>
 </tr>
 
 

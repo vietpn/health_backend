@@ -31,7 +31,7 @@ class FeedbackController extends AppBaseController
     public function index(Request $request)
     {
         $query = DB::table('e_feedback')
-            ->orderBy('e_feedback.id', 'ASC')
+            ->orderBy('e_feedback.id', 'DESC')
             ->leftJoin('e_profile', 'e_profile.id', '=', 'e_feedback.profile_id')
             ->select('e_feedback.*', 'e_profile.username');
 
@@ -80,7 +80,6 @@ class FeedbackController extends AppBaseController
     public function show($id)
     {
         $query = DB::table('e_feedback')
-            ->orderBy('e_feedback.id', 'ASC')
             ->leftJoin('e_profile', 'e_profile.id', '=', 'e_feedback.profile_id')
             ->select('e_feedback.*', 'e_profile.username')
             ->where('e_feedback.id', '=', $id);

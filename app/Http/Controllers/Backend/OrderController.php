@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Requests\Backend\CreateOrderRequest;
 use App\Http\Requests\Backend\UpdateOrderRequest;
+use App\Repositories\Backend\OrderDetailRepository;
 use App\Repositories\Backend\OrderRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -16,10 +17,12 @@ class OrderController extends AppBaseController
 {
     /** @var  OrderRepository */
     private $orderRepository;
+    private $orderDetailRepository;
 
-    public function __construct(OrderRepository $orderRepo)
+    public function __construct(OrderRepository $orderRepo, OrderDetailRepository $orderDetailRepo)
     {
         $this->orderRepository = $orderRepo;
+        $this->orderDetailRepository = $orderDetailRepo;
     }
 
     /**
@@ -33,7 +36,7 @@ class OrderController extends AppBaseController
         $this->orderRepository->pushCriteria(new RequestCriteria($request));
 
         $query = DB::table('e_order')
-            ->orderBy('e_order.id', 'ASC')
+            ->orderBy('e_order.id', 'DESC')
             ->leftJoin('e_profile', 'e_profile.id', '=', 'e_order.profile_id')
             ->select('e_order.*', 'e_profile.username');
 
@@ -82,7 +85,6 @@ class OrderController extends AppBaseController
     public function show($id)
     {
         $query = DB::table('e_order')
-            ->orderBy('e_order.id', 'ASC')
             ->leftJoin('e_profile', 'e_profile.id', '=', 'e_order.profile_id')
             ->select('e_order.*', 'e_profile.username')
             ->where('e_order.id', '=', $id);
@@ -94,7 +96,11 @@ class OrderController extends AppBaseController
             return redirect(route('backend.orders.index'));
         }
 
-        return view('backend.orders.show')->with('order', $order);
+        $orderDetails = $this->orderDetailRepository->findByField('order_id', $id);
+
+        return view('backend.orders.show')
+            ->with('order', $order)
+            ->with('orderDetails', $orderDetails);
     }
 
     /**
