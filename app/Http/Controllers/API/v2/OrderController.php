@@ -63,6 +63,7 @@ class OrderController extends AppBaseController
         $input['profile_id'] = $profile->id;
 
         $orders = $this->orderRepository->create($input);
+        $orders['order_details'] = array();
         if (!empty($input['order_detail'])) {
             $details = json_decode($input['order_detail'], true);
             if ($details) {
