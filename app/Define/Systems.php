@@ -103,12 +103,12 @@ class Systems
 
     }
 
-    public static function formatPrice($price, $decimal = 0)
+    public static function formatPrice($price, $decimal = 2)
     {
 
         if ($price == '' || $price == 0)
             return '0';
-        return number_format($price, $decimal, ',', ',');
+        return number_format($price, $decimal, '.', ',');
     }
 
     public static function uploadPhoto($attrPhoto, $file)

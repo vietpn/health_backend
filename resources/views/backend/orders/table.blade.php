@@ -12,7 +12,7 @@
     @foreach($orders as $order)
         <tr>
             <td>{!! $order->profile_id !!}</td>
-            <td>{!! $order->total_price !!}</td>
+            <td>{!! \App\Define\Systems::formatPrice($order->total_price) !!}</td>
             <td>{!! $order->promo_code !!}</td>
             <td>{!! $order->status !!}</td>
             <td>{!! $order->created_at !!}</td>

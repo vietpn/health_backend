@@ -26,7 +26,7 @@
 
 <tr>
     <td>Price:</td>
-    <td>{!! $product->price !!}</td>
+    <td>{!! \App\Define\Systems::formatPrice($product->price) !!}</td>
 </tr>
 
 
@@ -34,7 +34,7 @@
 
 <tr>
     <td>New Price:</td>
-    <td>{!! $product->new_price !!}</td>
+    <td>{!! \App\Define\Systems::formatPrice($product->new_price) !!}</td>
 </tr>
 
 <!-- Amount Field -->
