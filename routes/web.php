@@ -63,16 +63,19 @@ Route::group(['prefix' => 'admin'], function () {
             Route::delete('backend/orders/{orders}', ['as'=> 'orders.destroy', 'uses' => 'Backend\OrderController@destroy']);
             Route::get('backend/orders/{orders}', ['as'=> 'orders.show', 'uses' => 'Backend\OrderController@show']);
             Route::get('backend/orders/{orders}/edit', ['as'=> 'orders.edit', 'uses' => 'Backend\OrderController@edit']);
+
+            // Notification
+            Route::get('backend/notifications', ['as'=> 'notifications.index', 'uses' => 'Backend\NotificationController@index']);
+            Route::post('backend/notifications', ['as'=> 'notifications.store', 'uses' => 'Backend\NotificationController@store']);
+            Route::get('backend/notifications/create', ['as'=> 'notifications.create', 'uses' => 'Backend\NotificationController@create']);
+            Route::put('backend/notifications/{notifications}', ['as'=> 'notifications.update', 'uses' => 'Backend\NotificationController@update']);
+            Route::patch('backend/notifications/{notifications}', ['as'=> 'notifications.update', 'uses' => 'Backend\NotificationController@update']);
+            Route::delete('backend/notifications/{notifications}', ['as'=> 'notifications.destroy', 'uses' => 'Backend\NotificationController@destroy']);
+            Route::get('backend/notifications/{notifications}', ['as'=> 'notifications.show', 'uses' => 'Backend\NotificationController@show']);
+            Route::get('backend/notifications/{notifications}/edit', ['as'=> 'notifications.edit', 'uses' => 'Backend\NotificationController@edit']);
         });
         Route::get('/unauthorized', ['as' => 'admin.backend.unauthorized', 'role' => ['backend'], 'uses' => 'Backend\HomeController@getUnauthorized']);
         Route::get('/logout', array('as' => 'backend.logout', 'role' => ['backend'], 'uses' => "Backend\HomeController@getLogout"));
     });
 });
-
-
-
-
-
-
-
 
