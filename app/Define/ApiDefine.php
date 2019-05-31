@@ -32,4 +32,10 @@ define('LOG_USER_TO_TRANFER', 'LOG_USER_TO_TRANFER');
 // Storage Path
 define('STORAGE_PATH', 'app' . DIRECTORY_SEPARATOR . 'public');
 
+// Status
+define('STATUS_WAIT', 0);
+define('STATUS_CONFIRM', 1);
+define('STATUS_DELETE', 2);
+define('STATUS_DONE', 3);
+
 ?>

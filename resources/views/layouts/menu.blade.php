@@ -14,3 +14,7 @@
     <a href="{!! route('backend.feedback.index') !!}"><i class="fa fa-edit"></i><span>Feedback</span></a>
 </li>
 
+<li class="{{ Request::is('orders*') ? 'active' : '' }}">
+    <a href="{!! route('backend.orders.index') !!}"><i class="fa fa-edit"></i><span>Orders</span></a>
+</li>
+
