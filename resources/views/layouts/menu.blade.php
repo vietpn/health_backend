@@ -19,6 +19,6 @@
 </li>
 
 <li class="{{ Request::is('notifications*') ? 'active' : '' }}">
-    <a href="{!! route('backend.notifications.index') !!}"><i class="fa fa-edit"></i><span>Thông báo</span></a>
+    <a href="{!! route('backend.notifications.index') !!}"><i class="fa fa-bell"></i><span>Thông báo</span></a>
 </li>
 
