@@ -37,7 +37,7 @@ class Order extends Model
         'profile_id' => 'integer',
         'total_price' => 'float',
         'promo_code' => 'string',
-        'status' => 'boolean'
+        'status' => 'integer'
     ];
 
     /**
