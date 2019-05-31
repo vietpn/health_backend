@@ -63,7 +63,7 @@ class OrderController extends AppBaseController
         $input['profile_id'] = $profile->id;
 
         $orders = $this->orderRepository->create($input);
-        $orders['order_details'] = array();
+        $order_details = array();
         if (!empty($input['order_detail'])) {
             $details = json_decode($input['order_detail'], true);
             if ($details) {
@@ -76,10 +76,12 @@ class OrderController extends AppBaseController
                         $order_detail->amount = $detail['amount'];
                         $order_detail->order_id = $orders->id;
                         $order_detail->save();
+                        $order_details[] = $order_detail->toArray();
                     }
                 }
             }
         }
+        $orders['order_detail'] = $order_details;
 
         return $this->sendResponse($orders->toArray(), 'Order saved successfully');
     }
