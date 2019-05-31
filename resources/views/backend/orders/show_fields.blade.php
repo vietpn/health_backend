@@ -9,8 +9,8 @@
 <!-- Profile Id Field -->
 
 <tr>
-    <td>Profile Id:</td>
-    <td>{!! $order->profile_id !!}</td>
+    <td>Username:</td>
+    <td>{!! $order->username !!}</td>
 </tr>
 
 

@@ -9,8 +9,8 @@
 <!-- Profile Id Field -->
 
 <tr>
-    <td>Profile Id:</td>
-    <td>{!! $feedback->profile_id !!}</td>
+    <td>Username:</td>
+    <td>{!! $feedback->username !!}</td>
 </tr>
 
 

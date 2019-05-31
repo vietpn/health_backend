@@ -27,14 +27,10 @@
                         <h3 class="box-title"><i class="fa fa-home"></i>Orders</h3>
                     </div>
                     <div class="box-body">
-                        <p>
-                            <a class="btn btn-primary"  href="{!! route('backend.orders.create') !!}">Tạo mới</a>
-                        </p>
                             @include('backend.orders.table')
-                            {{--<div style="padding-left: 20px;padding-right: 20px;">
+                            <div style="padding-left: 20px;padding-right: 20px;">
                                     @include('adminlte-templates::common.paginate', ['records' => $orders])
-                                </div>
-                            --}}
+                            </div>
                     </div>
                 </div>
             </div>

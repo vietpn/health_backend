@@ -1,6 +1,6 @@
 <table class="table table-responsive table-striped table-bordered table-hover" id="orders-table">
     <thead>
-        <th>Profile Id</th>
+        <th>Username</th>
         <th>Total Price</th>
         <th>Promo Code</th>
         <th>Status</th>
@@ -11,7 +11,7 @@
     <tbody>
     @foreach($orders as $order)
         <tr>
-            <td>{!! $order->profile_id !!}</td>
+            <td>{!! $order->username !!}</td>
             <td>{!! \App\Define\Systems::formatPrice($order->total_price) !!}</td>
             <td>{!! $order->promo_code !!}</td>
             <td>{!! $order->status !!}</td>

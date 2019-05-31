@@ -31,12 +31,12 @@ class FeedbackController extends AppBaseController
     public function index(Request $request)
     {
         $query = DB::table('e_feedback')
-            ->orderBy('e_feedback.id', 'DESC')
+            ->orderBy('e_feedback.id', 'ASC')
             ->leftJoin('e_profile', 'e_profile.id', '=', 'e_feedback.profile_id')
             ->select('e_feedback.*', 'e_profile.username');
 
         // pagination
-        $feedback = $query->paginate(5);
+        $feedback = $query->paginate(10);
 
         return view('backend.feedback.index')
             ->with('feedback', $feedback);
@@ -79,7 +79,13 @@ class FeedbackController extends AppBaseController
      */
     public function show($id)
     {
-        $feedback = $this->feedbackRepository->findWithoutFail($id);
+        $query = DB::table('e_feedback')
+            ->orderBy('e_feedback.id', 'ASC')
+            ->leftJoin('e_profile', 'e_profile.id', '=', 'e_feedback.profile_id')
+            ->select('e_feedback.*', 'e_profile.username')
+            ->where('e_feedback.id', '=', $id);
+
+        $feedback = $query->first();
 
         if (empty($feedback)) {
             Flash::error('Feedback not found');

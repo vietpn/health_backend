@@ -30,10 +30,9 @@
                         <p>
                         </p>
                             @include('backend.feedback.table')
-                            {{--<div style="padding-left: 20px;padding-right: 20px;">
-                                    @include('adminlte-templates::common.paginate', ['records' => $feedback])
-                                </div>
-                            --}}
+                            <div style="padding-left: 20px;padding-right: 20px;">
+                                @include('adminlte-templates::common.paginate', ['records' => $feedback])
+                            </div>
                     </div>
                 </div>
             </div>

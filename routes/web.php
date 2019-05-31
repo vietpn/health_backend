@@ -58,8 +58,6 @@ Route::group(['prefix' => 'admin'], function () {
 
             // Order
             Route::get('backend/orders', ['as'=> 'orders.index', 'uses' => 'Backend\OrderController@index']);
-            Route::post('backend/orders', ['as'=> 'orders.store', 'uses' => 'Backend\OrderController@store']);
-            Route::get('backend/orders/create', ['as'=> 'orders.create', 'uses' => 'Backend\OrderController@create']);
             Route::put('backend/orders/{orders}', ['as'=> 'orders.update', 'uses' => 'Backend\OrderController@update']);
             Route::patch('backend/orders/{orders}', ['as'=> 'orders.update', 'uses' => 'Backend\OrderController@update']);
             Route::delete('backend/orders/{orders}', ['as'=> 'orders.destroy', 'uses' => 'Backend\OrderController@destroy']);

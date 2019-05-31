@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use DB;
 
 class OrderController extends AppBaseController
 {
@@ -30,9 +31,14 @@ class OrderController extends AppBaseController
     public function index(Request $request)
     {
         $this->orderRepository->pushCriteria(new RequestCriteria($request));
-        $orders = $this->orderRepository->all();
 
-        /*$orders = Order::paginate(15);*/
+        $query = DB::table('e_order')
+            ->orderBy('e_order.id', 'ASC')
+            ->leftJoin('e_profile', 'e_profile.id', '=', 'e_order.profile_id')
+            ->select('e_order.*', 'e_profile.username');
+
+        // pagination
+        $orders = $query->paginate(10);
 
         return view('backend.orders.index')
             ->with('orders', $orders);
@@ -75,7 +81,12 @@ class OrderController extends AppBaseController
      */
     public function show($id)
     {
-        $order = $this->orderRepository->findWithoutFail($id);
+        $query = DB::table('e_order')
+            ->orderBy('e_order.id', 'ASC')
+            ->leftJoin('e_profile', 'e_profile.id', '=', 'e_order.profile_id')
+            ->select('e_order.*', 'e_profile.username')
+            ->where('e_order.id', '=', $id);
+        $order = $query->first();
 
         if (empty($order)) {
             Flash::error('Order not found');
