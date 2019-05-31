@@ -6,7 +6,9 @@ use App\Http\Requests\API\CreateOrderAPIRequest;
 use App\Http\Requests\API\UpdateOrderAPIRequest;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Repositories\Api\OrderDetailRepository;
 use App\Repositories\Api\OrderRepository;
+use App\Repositories\Api\ProductRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
 use InfyOm\Generator\Criteria\LimitOffsetCriteria;
@@ -21,10 +23,12 @@ class OrderController extends AppBaseController
 {
     /** @var  OrderRepository */
     private $orderRepository;
+    private $productRepository;
 
-    public function __construct(OrderRepository $orderRepo)
+    public function __construct(OrderRepository $orderRepo, ProductRepository $productRepo)
     {
         $this->orderRepository = $orderRepo;
+        $this->productRepository = $productRepo;
     }
 
     /**
@@ -64,8 +68,10 @@ class OrderController extends AppBaseController
             if ($details) {
                 foreach ($details as $detail) {
                     if (isset($detail['product_id']) && isset($detail['amount'])) {
+                        $product = $this->productRepository->findWithoutFail($detail['product_id']);
                         $order_detail = new OrderDetail();
                         $order_detail->product_id = $detail['product_id'];
+                        $order_detail->product_name = (isset($product['name'])) ? $product['name'] : '';
                         $order_detail->amount = $detail['amount'];
                         $order_detail->order_id = $orders->id;
                         $order_detail->save();

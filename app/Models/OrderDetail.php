@@ -7,7 +7,7 @@ use Eloquent as Model;
 /**
  * Class OrderDetail
  * @package App\Models
- * @version May 30, 2019, 4:11 pm +07
+ * @version May 31, 2019, 8:44 am +07
  */
 class OrderDetail extends Model
 {
