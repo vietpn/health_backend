@@ -13,12 +13,38 @@ use Illuminate\Database\Eloquent\Model;
  */
 class BaseModel extends Model
 {
+    // Status
+    const STATUS_WAIT = 0;
+    const STATUS_CONFIRM = 1;
+    const STATUS_DELETE = 2;
+    const STATUS_DONE = 3;
+
     public static function getImage($src, $width = 80, $height = 80)
     {
         if (empty($src)) {
             return "http://placehold.it/" . $width . "x" . $height;
         }
         return 'storage/' . $src;
+    }
+
+    public static function getStatusName($status)
+    {
+        $arr = BaseModel::getStatusList();
+        if (isset($arr[$status])) {
+            return $arr[$status];
+        } else {
+            return "N/A";
+        }
+    }
+
+    public static function getStatusList()
+    {
+        return [
+            self::STATUS_WAIT => 'Wait',
+            self::STATUS_CONFIRM => 'Confirm',
+            self::STATUS_DELETE => 'Delete',
+            self::STATUS_DONE => 'Done'
+        ];
     }
 
 }

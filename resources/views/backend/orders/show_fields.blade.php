@@ -34,7 +34,7 @@
 
 <tr>
     <td>Status:</td>
-    <td>{!! $order->status !!}</td>
+    <td>{!! \App\Models\BaseModel::getStatusName($order->status) !!}</td>
 </tr>
 
 

@@ -14,7 +14,7 @@
             <td>{!! $order->username !!}</td>
             <td>{!! \App\Define\Systems::formatPrice($order->total_price) !!}</td>
             <td>{!! $order->promo_code !!}</td>
-            <td>{!! $order->status !!}</td>
+            <td>{!! \App\Models\BaseModel::getStatusName($order->status) !!}</td>
             <td>{!! $order->created_at !!}</td>
             <td>{!! $order->updated_at !!}</td>
             <td>

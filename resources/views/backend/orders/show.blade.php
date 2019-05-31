@@ -34,18 +34,19 @@
                 </table>
 
                 <div class="row" style="padding-left: 20px; padding-right: 20px">
-                    <?php foreach ($orderDetails as $orderDetail){ ?>
-                        <table class="table table-striped table-bordered table-hover">
+                    <table class="table table-striped table-bordered table-hover">
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Amount</th>
+                        </tr>
+                        <?php foreach ($orderDetails as $orderDetail) { ?>
                             <tr>
-                                <td>Product Name:</td>
                                 <td>{!! $orderDetail->product_name !!}</td>
-                            </tr>
-                            <tr>
-                                <td>Amount:</td>
                                 <td>{!! $orderDetail->amount !!}</td>
                             </tr>
-                        </table>
-                    <?php }?>
+                        <?php } ?>
+
+                    </table>
                 </div>
             </div>
         </div>
