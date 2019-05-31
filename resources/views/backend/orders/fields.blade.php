@@ -1,28 +1,25 @@
 <!-- Profile Id Field -->
 <div class="form-group">
-    {!! Form::label('profile_id', 'Profile Id:') !!}
-    {!! Form::number('profile_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('username', 'Username:') !!}
+    <div>{!! $order->username !!}</div>
 </div>
 
 <!-- Total Price Field -->
 <div class="form-group">
     {!! Form::label('total_price', 'Total Price:') !!}
-    {!! Form::number('total_price', null, ['class' => 'form-control']) !!}
+    <div>{!! \App\Define\Systems::formatPrice($order->total_price) !!}</div>
 </div>
 
 <!-- Promo Code Field -->
 <div class="form-group">
     {!! Form::label('promo_code', 'Promo Code:') !!}
-    {!! Form::text('promo_code', null, ['class' => 'form-control']) !!}
+    <div>{!! $order->promo_code !!}</div>
 </div>
 
 <!-- Status Field -->
 <div class="form-group">
     {!! Form::label('status', 'Status:') !!}
-    <label class="checkbox-inline">
-        {!! Form::hidden('status', false) !!}
-        {!! Form::checkbox('status', '1', null) !!} 1
-    </label>
+    {!! Form::select('status', \App\Models\BaseModel::getStatusList(), isset($order) ? intval($order->status) : null, ['class' => 'form-control', 'style'=>'width:300px']) !!}
 </div>
 
 <!-- Submit Field -->

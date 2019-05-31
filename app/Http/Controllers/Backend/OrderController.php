@@ -112,7 +112,11 @@ class OrderController extends AppBaseController
      */
     public function edit($id)
     {
-        $order = $this->orderRepository->findWithoutFail($id);
+        $query = DB::table('e_order')
+            ->leftJoin('e_profile', 'e_profile.id', '=', 'e_order.profile_id')
+            ->select('e_order.*', 'e_profile.username')
+            ->where('e_order.id', '=', $id);
+        $order = $query->first();
 
         if (empty($order)) {
             Flash::error('Order not found');
