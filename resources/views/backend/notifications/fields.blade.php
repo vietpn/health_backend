@@ -1,6 +1,6 @@
 <!-- Content Field -->
 <div class="form-group">
-    {!! Form::label('content', 'Content:') !!}
+    {!! Form::label('content', 'Nội dung:') !!}
     {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
 </div>
 

@@ -1,6 +1,6 @@
 <!-- Name Field -->
 <div class="form-group">
-    {!! Form::label('name', 'Name:') !!}
+    {!! Form::label('name', 'Tên:') !!}
     {!! Form::text('name', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -20,45 +20,45 @@
 
 <!-- Price Field -->
 <div class="form-group">
-    {!! Form::label('price', 'Price:') !!}
+    {!! Form::label('price', 'Giá:') !!}
     {!! Form::number('price', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- New Price Field -->
 <div class="form-group">
-    {!! Form::label('new_price', 'New Price:') !!}
+    {!! Form::label('new_price', 'Giá mới:') !!}
     {!! Form::number('new_price', null, ['class' => 'form-control']) !!}
 </div>
 
 
 <!-- Amount Field -->
 <div class="form-group">
-    {!! Form::label('amount', 'Amount:') !!}
+    {!! Form::label('amount', 'Số lượng:') !!}
     {!! Form::number('amount', null, ['class' => 'form-control']) !!}
 </div>
 
 
 <!-- Content Field -->
 <div class="form-group">
-    {!! Form::label('content', 'Content:') !!}
+    {!! Form::label('content', 'Hàm lượng:') !!}
     {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Chemicals Field -->
 <div class="form-group">
-    {!! Form::label('chemicals', 'Chemicals:') !!}
+    {!! Form::label('chemicals', 'Hoá chất:') !!}
     {!! Form::textarea('chemicals', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Packaging Field -->
 <div class="form-group">
-    {!! Form::label('packaging', 'Packaging:') !!}
+    {!! Form::label('packaging', 'Đóng gói:') !!}
     {!! Form::textarea('packaging', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Manufacturer Field -->
 <div class="form-group">
-    {!! Form::label('manufacturer', 'Manufacturer:') !!}
+    {!! Form::label('manufacturer', 'Hãng sản xuất:') !!}
     {!! Form::textarea('manufacturer', null, ['class' => 'form-control']) !!}
 </div>
 

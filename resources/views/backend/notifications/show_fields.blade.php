@@ -17,7 +17,7 @@
 <!-- Status Field -->
 
 <tr>
-    <td>Status:</td>
+    <td>Trạng thái:</td>
     <td>{!! $notification->status !!}</td>
 </tr>
 
@@ -25,7 +25,7 @@
 <!-- Created At Field -->
 
 <tr>
-    <td>Created At:</td>
+    <td>Ngày tạo:</td>
     <td>{!! $notification->created_at !!}</td>
 </tr>
 
@@ -33,7 +33,7 @@
 <!-- Updated At Field -->
 
 <tr>
-    <td>Updated At:</td>
+    <td>Ngày cập nhật:</td>
     <td>{!! $notification->updated_at !!}</td>
 </tr>
 

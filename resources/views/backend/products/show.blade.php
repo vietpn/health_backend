@@ -16,7 +16,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Product
+            Sản phẩm
         </h1>
     </section>
     <div class="content">

@@ -1,11 +1,11 @@
 <table class="table table-responsive table-striped table-bordered table-hover" id="orders-table">
     <thead>
         <th>Username</th>
-        <th>Total Price</th>
-        <th>Promo Code</th>
-        <th>Status</th>
-        <th>Created At</th>
-        <th>Updated At</th>
+        <th>Giá</th>
+        <th>Mã KM</th>
+        <th>Trạng thái</th>
+        <th>Ngày tạo</th>
+        <th>Ngày cập nhật</th>
         <th colspan="3">Action</th>
     </thead>
     <tbody>

@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Create Notification <span class="text-lowercase">{{ '' }}</span>
+            Tạo thông báo <span class="text-lowercase">{{ '' }}</span>
         </h1>
     </section>
     <div class="content">

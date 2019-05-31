@@ -17,7 +17,7 @@
 <!-- Total Price Field -->
 
 <tr>
-    <td>Total Price:</td>
+    <td>Giá:</td>
     <td>{!! \App\Define\Systems::formatPrice($order->total_price) !!}</td>
 </tr>
 
@@ -25,7 +25,7 @@
 <!-- Promo Code Field -->
 
 <tr>
-    <td>Promo Code:</td>
+    <td>Mã KM:</td>
     <td>{!! $order->promo_code !!}</td>
 </tr>
 
@@ -33,7 +33,7 @@
 <!-- Status Field -->
 
 <tr>
-    <td>Status:</td>
+    <td>Trạng thái:</td>
     <td>{!! \App\Models\BaseModel::getStatusName($order->status) !!}</td>
 </tr>
 
@@ -41,7 +41,7 @@
 <!-- Created At Field -->
 
 <tr>
-    <td>Created At:</td>
+    <td>Ngaỳ tạo:</td>
     <td>{!! $order->created_at !!}</td>
 </tr>
 
@@ -49,7 +49,7 @@
 <!-- Updated At Field -->
 
 <tr>
-    <td>Updated At:</td>
+    <td>Ngày cập nhật:</td>
     <td>{!! $order->updated_at !!}</td>
 </tr>
 

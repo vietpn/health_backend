@@ -1,10 +1,10 @@
 <table class="table table-responsive table-striped table-bordered table-hover" id="feedback-table">
     <thead>
         <th>Username</th>
-        <th>Content</th>
-        <th>Img Path</th>
-        <th>Created At</th>
-        <th>Updated At</th>
+        <th>Nội dung</th>
+        <th>Ảnh</th>
+        <th>Ngày tạo</th>
+        <th>Ngày cập nhật</th>
         <th colspan="3">Action</th>
     </thead>
     <tbody>

@@ -16,7 +16,7 @@
 @section('content')
 <section class="content-header">
     <h1>
-        Order
+        Đơn hàng
     </h1>
 </section>
 <div class="content">
@@ -36,8 +36,8 @@
                 <div class="row" style="padding-left: 20px; padding-right: 20px">
                     <table class="table table-striped table-bordered table-hover">
                         <tr>
-                            <th>Product Name</th>
-                            <th>Amount</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Số lượng</th>
                         </tr>
                         <?php foreach ($orderDetails as $orderDetail) { ?>
                             <tr>

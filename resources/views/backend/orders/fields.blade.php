@@ -6,19 +6,19 @@
 
 <!-- Total Price Field -->
 <div class="form-group">
-    {!! Form::label('total_price', 'Total Price:') !!}
+    {!! Form::label('total_price', 'Giá:') !!}
     <div>{!! \App\Define\Systems::formatPrice($order->total_price) !!}</div>
 </div>
 
 <!-- Promo Code Field -->
 <div class="form-group">
-    {!! Form::label('promo_code', 'Promo Code:') !!}
+    {!! Form::label('promo_code', 'Mã KM:') !!}
     <div>{!! $order->promo_code !!}</div>
 </div>
 
 <!-- Status Field -->
 <div class="form-group">
-    {!! Form::label('status', 'Status:') !!}
+    {!! Form::label('status', 'Trạng thái:') !!}
     {!! Form::select('status', \App\Models\BaseModel::getStatusList(), isset($order) ? intval($order->status) : null, ['class' => 'form-control', 'style'=>'width:300px']) !!}
 </div>
 

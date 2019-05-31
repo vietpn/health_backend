@@ -40,10 +40,10 @@ class BaseModel extends Model
     public static function getStatusList()
     {
         return [
-            self::STATUS_WAIT => 'Wait',
-            self::STATUS_CONFIRM => 'Confirm',
-            self::STATUS_DELETE => 'Delete',
-            self::STATUS_DONE => 'Done'
+            self::STATUS_WAIT => 'Chờ xác nhận',
+            self::STATUS_CONFIRM => 'Xác nhận',
+            self::STATUS_DELETE => 'Huỷ',
+            self::STATUS_DONE => 'Đã giao hàng'
         ];
     }
 

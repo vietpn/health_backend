@@ -1,12 +1,12 @@
 <table class="table table-responsive table-striped table-bordered table-hover" id="profiles-table">
     <thead>
         <th>Username</th>
-        <th>Name</th>
+        <th>Tện</th>
         <th>Email</th>
-        <th>Phone Number</th>
-        <th>Birthday</th>
-        <th>Created At</th>
-        <th>Updated At</th>
+        <th>Số ĐT</th>
+        <th>Ngày sinh</th>
+        <th>Ngày tạo</th>
+        <th>Ngày cập nhật</th>
         <th colspan="3">Action</th>
     </thead>
     <tbody>

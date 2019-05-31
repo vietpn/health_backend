@@ -17,7 +17,7 @@
 <!-- Content Field -->
 
 <tr>
-    <td>Content:</td>
+    <td>Nội dung:</td>
     <td>{!! $feedback->content !!}</td>
 </tr>
 
@@ -25,7 +25,7 @@
 <!-- Img Path Field -->
 
 <tr>
-    <td>Img Path:</td>
+    <td>Ảnh:</td>
     <td>{!! $feedback->img_path !!}</td>
 </tr>
 
@@ -33,7 +33,7 @@
 <!-- Created At Field -->
 
 <tr>
-    <td>Created At:</td>
+    <td>Ngày tạo:</td>
     <td>{!! $feedback->created_at !!}</td>
 </tr>
 
@@ -41,7 +41,7 @@
 <!-- Updated At Field -->
 
 <tr>
-    <td>Updated At:</td>
+    <td>Ngày cập nhật:</td>
     <td>{!! $feedback->updated_at !!}</td>
 </tr>
 

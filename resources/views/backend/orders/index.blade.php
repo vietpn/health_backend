@@ -3,7 +3,7 @@
 @section('header')
 	<section class="content-header">
 		<h1>
-			Quản lý Orders <span class="text-lowercase">{{ '' }}</span>
+			Quản lý đơn hàng <span class="text-lowercase">{{ '' }}</span>
 		</h1>
 		<ol class="breadcrumb">
 			<li><a href="{{ '' }}" class="text-capitalize">{{ '' }}</a></li>

@@ -6,7 +6,7 @@
 
 <!-- Name Field -->
 <div class="form-group">
-    {!! Form::label('name', 'Name:') !!}
+    {!! Form::label('name', 'Tên:') !!}
     {!! Form::text('name', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -18,13 +18,13 @@
 
 <!-- Phone Number Field -->
 <div class="form-group">
-    {!! Form::label('phone_number', 'Phone Number:') !!}
+    {!! Form::label('phone_number', 'Số ĐT:') !!}
     {!! Form::text('phone_number', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Birthday Field -->
 <div class="form-group">
-    {!! Form::label('birthday', 'Birthday:') !!}
+    {!! Form::label('birthday', 'Ngày sinh:') !!}
     <div class="input-group">
         <?php
         if ( isset($profile) && !empty($profile->birthday)) {

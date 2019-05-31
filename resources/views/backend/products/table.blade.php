@@ -1,13 +1,13 @@
 <table class="table table-responsive table-striped table-bordered table-hover" id="products-table">
     <thead>
-        <th>Name</th>
-        <th>Img Path</th>
-        <th>Price</th>
-        <th>New Price</th>
+        <th>Tên</th>
+        <th>Ảnh</th>
+        <th>Giá</th>
+        <th>Giá mới</th>
 
-        <th>Amount</th>
-        <th>Created At</th>
-        <th>Updated At</th>
+        <th>Số lượng</th>
+        <th>Ngày tạo</th>
+        <th>Ngày cập nhật</th>
         <th colspan="3">Action</th>
     </thead>
     <tbody>

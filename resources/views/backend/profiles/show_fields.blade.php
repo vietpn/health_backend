@@ -17,7 +17,7 @@
 <!-- Name Field -->
 
 <tr>
-    <td>Name:</td>
+    <td>Tên:</td>
     <td>{!! $profile->name !!}</td>
 </tr>
 
@@ -33,7 +33,7 @@
 <!-- Phone Number Field -->
 
 <tr>
-    <td>Phone Number:</td>
+    <td>Số ĐT:</td>
     <td>{!! $profile->phone_number !!}</td>
 </tr>
 
@@ -41,31 +41,14 @@
 <!-- Birthday Field -->
 
 <tr>
-    <td>Birthday:</td>
+    <td>Ngày tạo:</td>
     <td>{!! $profile->birthday !!}</td>
 </tr>
-
-
-<!-- Password Field -->
-
-<tr>
-    <td>Password:</td>
-    <td>{!! $profile->password !!}</td>
-</tr>
-
-
-<!-- Remember Token Field -->
-
-<tr>
-    <td>Remember Token:</td>
-    <td>{!! $profile->remember_token !!}</td>
-</tr>
-
 
 <!-- Created At Field -->
 
 <tr>
-    <td>Created At:</td>
+    <td>Ngày tạo:</td>
     <td>{!! $profile->created_at !!}</td>
 </tr>
 
@@ -73,7 +56,7 @@
 <!-- Updated At Field -->
 
 <tr>
-    <td>Updated At:</td>
+    <td>Ngày cập nhật:</td>
     <td>{!! $profile->updated_at !!}</td>
 </tr>
 
