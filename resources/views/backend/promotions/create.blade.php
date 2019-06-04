@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Tạo Khuyến Mại <span class="text-lowercase">{{ '' }}</span>
+            Tạo mới khuyến mại <span class="text-lowercase">{{ '' }}</span>
         </h1>
     </section>
     <div class="content">
