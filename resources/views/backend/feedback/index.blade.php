@@ -24,7 +24,7 @@
                 <div class="clearfix"></div>
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title"><i class="fa fa-home"></i>Feedback</h3>
+                        <h3 class="box-title"><i class="fa fa-home"></i>Phản hồi</h3>
                     </div>
                     <div class="box-body">
                         <p>

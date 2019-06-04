@@ -24,7 +24,7 @@
                 <div class="clearfix"></div>
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title"><i class="fa fa-home"></i>Orders</h3>
+                        <h3 class="box-title"><i class="fa fa-home"></i>Đơn hàng</h3>
                     </div>
                     <div class="box-body">
                             @include('backend.orders.table')
