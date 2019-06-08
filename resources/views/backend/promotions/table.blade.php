@@ -1,6 +1,7 @@
 <table class="table table-responsive table-striped table-bordered table-hover" id="promotions-table">
     <thead>
         <th>Ảnh</th>
+        <th>Tiêu Đề</th>
         <th>Nội Dung</th>
         <th>Mã</th>
         <th>Giá Trị</th>
@@ -11,8 +12,10 @@
     <tbody>
     @foreach($promotions as $promotion)
         <tr>
-            <td>{!! Html::image(\App\Models\BaseModel::getImage( $promotion->img_path) , '',['style' => 'width:80px; height:80px']); !!}</td><td>{!! $promotion->code !!}</td>
+            <td>{!! Html::image(\App\Models\BaseModel::getImage( $promotion->img_path) , '',['style' => 'width:80px; height:80px']); !!}</td>
+            <td>{!! $promotion->title !!}</td>
             <td>{!! $promotion->content !!}</td>
+            <td>{!! $promotion->code !!}</td>
             <td>{!! $promotion->value !!}</td>
             <td>{!! $promotion->created_at !!}</td>
             <td>{!! $promotion->updated_at !!}</td>

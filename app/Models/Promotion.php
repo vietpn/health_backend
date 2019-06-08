@@ -7,7 +7,7 @@ use Eloquent as Model;
 /**
  * Class Promotion
  * @package App\Models
- * @version May 28, 2019, 4:55 pm +07
+ * @version June 8, 2019, 11:06 pm +07
  */
 class Promotion extends Model
 {
@@ -16,7 +16,10 @@ class Promotion extends Model
     
     public $timestamps = false;
 
+
+
     public $fillable = [
+        'title',
         'content',
         'img_path',
         'code',
@@ -32,6 +35,7 @@ class Promotion extends Model
      */
     protected $casts = [
         'id' => 'integer',
+        'title' => 'string',
         'content' => 'string',
         'img_path' => 'string',
         'code' => 'string',
@@ -75,5 +79,4 @@ class Promotion extends Model
 
         });
     }
-    
 }

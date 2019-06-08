@@ -12,6 +12,12 @@
     ?>
 </div>
 
+<!-- Code Field -->
+<div class="form-group">
+  {!! Form::label('title', 'Tiêu Đề:') !!}
+  {!! Form::text('title', null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Content Field -->
 <div class="form-group">
     {!! Form::label('content', 'Nội Dung:') !!}
