@@ -11,7 +11,6 @@ use Response;
  * Class PromotionController
  * @package App\Http\Controllers\API
  */
-
 class PromotionController extends AppBaseController
 {
     /** @var  PromotionRepository */
@@ -34,5 +33,17 @@ class PromotionController extends AppBaseController
         $promotions = $this->promotionRepository->all();
 
         return $this->sendResponse($promotions->toArray(), 'Promotions retrieved successfully');
+    }
+
+    public function code($code)
+    {
+        $promotion = $this->promotionRepository->findWhere(['code' => $code])->first();
+
+        if (empty($promotion)) {
+            return $this->sendError('Promotion not found', CODE_NOT_FOUND);
+        }
+
+
+        return $this->sendResponse($promotion->toArray(), 'Promotions retrieved successfully');
     }
 }

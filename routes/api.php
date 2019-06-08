@@ -16,7 +16,11 @@ Route::group(['prefix' => 'v1', 'middleware' => ['outh_client', 'cors'], 'namesp
     Route::post('/user/login', ['as' => 'v1.user.login', 'uses' => 'UserController@login']);
 
     Route::get('/configs', 'ConfigController@index');
+    
     Route::get('/promotions', 'PromotionController@index');
+    Route::get('/promotions/{code}', 'PromotionController@code');
+
+
     Route::get('/products', 'ProductController@index');
 });
 
