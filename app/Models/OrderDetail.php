@@ -13,15 +13,13 @@ class OrderDetail extends Model
 {
 
     public $table = 'e_order_detail';
-    
-    public $timestamps = false;
 
+    public $timestamps = false;
 
 
     public $fillable = [
         'order_id',
         'product_id',
-        'product_name',
         'amount',
         'created_at',
         'updated_at'
@@ -36,7 +34,6 @@ class OrderDetail extends Model
         'id' => 'integer',
         'order_id' => 'integer',
         'product_id' => 'integer',
-        'product_name' => 'string',
         'amount' => 'integer'
     ];
 
@@ -46,8 +43,17 @@ class OrderDetail extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
+
+    public function getProductIdAttribute()
+    {
+        $product = Product::find($this->attributes['product_id']);
+        if(isset($product)){
+            return $product->toArray();
+        }
+        return array();
+    }
 
     /**
      * @inheritdoc

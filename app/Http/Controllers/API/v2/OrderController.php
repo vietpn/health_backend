@@ -69,10 +69,8 @@ class OrderController extends AppBaseController
             if ($details) {
                 foreach ($details as $detail) {
                     if (isset($detail['product_id']) && isset($detail['amount'])) {
-                        $product = $this->productRepository->findWithoutFail($detail['product_id']);
                         $order_detail = new OrderDetail();
                         $order_detail->product_id = $detail['product_id'];
-                        $order_detail->product_name = (isset($product['name'])) ? $product['name'] : '';
                         $order_detail->amount = $detail['amount'];
                         $order_detail->order_id = $orders->id;
                         $order_detail->save();
