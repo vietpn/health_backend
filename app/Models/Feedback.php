@@ -50,6 +50,19 @@ class Feedback extends Model
     /**
      * @inheritdoc
      */
+    public function getImgPathAttribute()
+    {
+        $arrImg =  explode(',', $this->attributes['img_path']);
+        if(!empty($arrImg)){
+            return $arrImg;
+        } else {
+            return $this->attributes['img_path'];
+        }
+    }
+
+    /**
+     * @inheritdoc
+     */
     public static function boot()
     {
         parent::boot();
