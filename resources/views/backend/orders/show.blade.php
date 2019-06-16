@@ -37,11 +37,15 @@
                     <table class="table table-striped table-bordered table-hover">
                         <tr>
                             <th>Tên sản phẩm</th>
+                            <th>ID</th>
+                            <th>Anh</th>
                             <th>Số lượng</th>
                         </tr>
                         <?php foreach ($orderDetails as $orderDetail) { ?>
                             <tr>
-                                <td>{!! $orderDetail->product_name !!}</td>
+                                <td>{!! $orderDetail['product_id']['name'] !!}</td>
+                                <td>{!! $orderDetail['product_id']['id'] !!}</td>
+                                <td>{!! Html::image($orderDetail['product_id']['img_path'], '',['style' => 'width:80px; height:80px']); !!}</td>
                                 <td>{!! $orderDetail->amount !!}</td>
                             </tr>
                         <?php } ?>

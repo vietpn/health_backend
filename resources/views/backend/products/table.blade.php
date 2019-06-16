@@ -1,10 +1,10 @@
 <table class="table table-responsive table-striped table-bordered table-hover" id="products-table">
     <thead>
         <th>Tên</th>
+        <th>ID</th>
         <th>Ảnh</th>
         <th>Giá</th>
         <th>Giá mới</th>
-
         <th>Số lượng</th>
         <th>Ngày tạo</th>
         <th>Ngày cập nhật</th>
@@ -14,7 +14,8 @@
     @foreach($products as $product)
         <tr>
             <td>{!! $product->name !!}</td>
-            <td>{!! Html::image(\App\Models\BaseModel::getImage( $product->img_path) , '',['style' => 'width:80px; height:80px']); !!}</td>
+            <td>{!! $product->id !!}</td>
+            <td>{!! Html::image($product->img_path, '',['style' => 'width:80px; height:80px']); !!}</td>
             <td>{!! \App\Define\Systems::formatPrice($product->price) !!}</td>
             <td>{!! \App\Define\Systems::formatPrice($product->new_price) !!}</td>
             <td>{!! $product->amount !!}</td>
