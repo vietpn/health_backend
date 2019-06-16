@@ -72,4 +72,41 @@ class UserController extends AppBaseController
             return $e->getMessage();
         }
     }
+
+    public function changePassword(ProfileRequest $request)
+    {
+        try {
+            $email = $request->input('email', "");
+            $username = $request->input('username', "");
+            $password = $request->input('password', "");
+            if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                Auth::attempt(
+                    [
+                        'email' => $email,
+                        'password' => $password,
+                    ]
+                );
+            } else {
+                Auth::attempt(
+                    [
+                        'username' => $username,
+                        'password' => $password,
+                    ]);
+            }
+            if (Auth::check()) {
+                $respone = $this->profileRepository->changePassword($request);
+                if (!isset($respone)) {
+                    return $this->sendError(MSG_BAD_REQUEST, CODE_BAD_REQUEST);
+                }
+                if ($respone['success'] === false) {
+                    return $this->sendError($respone['data'], CODE_BAD_REQUEST);
+                }
+                return $this->sendResponse($respone['data'], MSG_SUCCESS);
+            } else {
+                return $this->sendError(MSG_UNAUTHORIZED, CODE_UNAUTHORIZED);
+            }
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
 }

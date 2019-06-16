@@ -27,9 +27,10 @@ class ProfileRequest extends APIRequest
     {
         $route = \Route::currentRouteName();
         switch ($route) {
-            case 'api.v2.user.changePassword':
+            case 'api.v1.user.changePassword':
                 $rules = [
-                    'password' => 'required|min:6',
+                    'password' => 'required|min:3',
+                    'new_password' => 'required|min:3',
                 ];
                 break;
             default:

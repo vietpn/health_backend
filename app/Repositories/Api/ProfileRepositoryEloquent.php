@@ -44,12 +44,12 @@ class ProfileRepositoryEloquent extends BaseRepository implements ProfileReposit
         // TODO: Implement checkLogIn() method.
     }
 
-    public function changePassowrd($request)
+    public function changePassword($request)
     {
         try {
             $profile = $this->getInfor();
-            $newPassword = $request->input('password', "");
-            $input['password'] = bcrypt($newPassword);
+            $newPassword = $request->input('new_password', "");
+            $input['password'] = $newPassword;
             $profileUpdate = $this->update($input, $profile->id);
             if (!isset($profileUpdate)) {
                 return [
@@ -73,6 +73,7 @@ class ProfileRepositoryEloquent extends BaseRepository implements ProfileReposit
 
 
     }
+
     public function getInfor()
     {
         // TODO: Implement getInfor() method.
