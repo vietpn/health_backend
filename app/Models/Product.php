@@ -62,6 +62,14 @@ class Product extends Model
     /**
      * @inheritdoc
      */
+    public function getImgPathAttribute()
+    {
+        return env('APP_STORAGE_URL', '') . $this->attributes['img_path'];
+    }
+
+    /**
+     * @inheritdoc
+     */
     public static function boot()
     {
         parent::boot();
