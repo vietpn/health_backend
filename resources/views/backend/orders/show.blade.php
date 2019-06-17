@@ -38,8 +38,9 @@
                         <tr>
                             <th>Tên sản phẩm</th>
                             <th>ID</th>
-                            <th>Anh</th>
+                            <th>Ảnh</th>
                             <th>Số lượng</th>
+                            <th>Giá</th>
                         </tr>
                         <?php foreach ($orderDetails as $orderDetail) { ?>
                             <tr>
@@ -47,6 +48,7 @@
                                 <td>{!! $orderDetail['product_id']['id'] !!}</td>
                                 <td>{!! Html::image($orderDetail['product_id']['img_path'], '',['style' => 'width:80px; height:80px']); !!}</td>
                                 <td>{!! $orderDetail->amount !!}</td>
+                                <td>{!! $orderDetail->price !!}</td>
                             </tr>
                         <?php } ?>
 
