@@ -117,6 +117,7 @@ class OrderController extends AppBaseController
             ->select('e_order.*', 'e_profile.username')
             ->where('e_order.id', '=', $id);
         $order = $query->first();
+        $orderDetails = $this->orderDetailRepository->findByField('order_id', $id);
 
         if (empty($order)) {
             Flash::error('Order not found');
@@ -124,13 +125,15 @@ class OrderController extends AppBaseController
             return redirect(route('backend.orders.index'));
         }
 
-        return view('backend.orders.edit')->with('order', $order);
+        return view('backend.orders.edit')
+            ->with('order', $order)
+            ->with('orderDetails', $orderDetails);
     }
 
     /**
      * Update the specified Order in storage.
      *
-     * @param  int              $id
+     * @param  int $id
      * @param UpdateOrderRequest $request
      *
      * @return Response
