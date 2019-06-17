@@ -2,7 +2,6 @@
     <thead>
         <th>Username</th>
         <th>Nội dung</th>
-        <th>Ảnh</th>
         <th>Ngày tạo</th>
         <th>Ngày cập nhật</th>
         <th colspan="3">Action</th>
@@ -12,7 +11,6 @@
         <tr>
             <td>{!! $feedback->username !!}</td>
             <td>{!! $feedback->content !!}</td>
-            <td>{!! $feedback->img_path !!}</td>
             <td>{!! $feedback->created_at !!}</td>
             <td>{!! $feedback->updated_at !!}</td>
             <td>
