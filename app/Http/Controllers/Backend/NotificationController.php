@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use DB;
+
 
 class NotificationController extends AppBaseController
 {
@@ -30,7 +32,7 @@ class NotificationController extends AppBaseController
     public function index(Request $request)
     {
         $this->notificationRepository->pushCriteria(new RequestCriteria($request));
-        $notifications = $this->notificationRepository->all();
+        $notifications = $this->notificationRepository->orderBy('id', 'DESC')->all();
 
         /*$notifications = Notification::paginate(15);*/
 
@@ -60,6 +62,17 @@ class NotificationController extends AppBaseController
         $input = $request->all();
 
         $notification = $this->notificationRepository->create($input);
+
+        // get all device
+        $devices = DB::table('e_device')
+            ->select('e_device.device_token')->get()->toArray();
+        $device_token = array();
+        foreach ($devices as $device) {
+            $device_token[] = $device->device_token;
+        }
+
+        // send notification
+        $this->_sendGCM($notification->content, $device_token);
 
         Flash::success('Notification saved successfully.');
 
@@ -156,14 +169,12 @@ class NotificationController extends AppBaseController
     }
 
     // Send notification to Mobile
-    private function _sendGCM($message, $id)
+    private function _sendGCM($message, $ids)
     {
         $url = 'https://fcm.googleapis.com/fcm/send';
 
         $fields = array(
-            'registration_ids' => array(
-                $id
-            ),
+            'registration_ids' => $ids,
             'data' => array(
                 "message" => $message
             )
@@ -183,7 +194,8 @@ class NotificationController extends AppBaseController
         curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
 
         $result = curl_exec($ch);
-        echo $result;
+        var_dump($result);
+        die;
         curl_close($ch);
     }
 }
