@@ -39,5 +39,10 @@ Route::group(['prefix' => 'v2', 'middleware' => ['auth_api:api', 'cors'], 'names
     Route::patch('orders/{orders}', 'OrderController@update');
     Route::delete('orders{orders}', 'OrderController@destroy');
 
+    // About
     Route::get('/user/about', ['as' => 'v2.user.about', 'uses' => 'UserController@about']);
+
+    // Device
+    Route::get('devices', 'DeviceController@index');
+    Route::post('devices', 'DeviceController@store');
 });

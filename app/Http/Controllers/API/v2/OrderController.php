@@ -40,9 +40,11 @@ class OrderController extends AppBaseController
      */
     public function index(Request $request)
     {
+        $profile = \Auth::user();
+
         $this->orderRepository->pushCriteria(new RequestCriteria($request));
         $this->orderRepository->pushCriteria(new LimitOffsetCriteria($request));
-        $orders = $this->orderRepository->all();
+        $orders = $this->orderRepository->findByField('profile_id', $profile->id);
 
         return $this->sendResponse($orders->toArray(), 'Orders retrieved successfully');
     }
