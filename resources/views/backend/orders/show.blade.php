@@ -48,7 +48,7 @@
                                 <td>{!! $orderDetail['product_id']['id'] !!}</td>
                                 <td>{!! Html::image($orderDetail['product_id']['img_path'], '',['style' => 'width:80px; height:80px']); !!}</td>
                                 <td>{!! $orderDetail->amount !!}</td>
-                                <td>{!! $orderDetail['product_id']['price'] !!}</td>
+                                <td>{!! \App\Define\Systems::formatPrice($orderDetail['product_id']['price']) !!}</td>
                             </tr>
                         <?php } ?>
 
