@@ -72,7 +72,9 @@ class NotificationController extends AppBaseController
         }
 
         // send notification
-        $this->_sendGCM($notification->content, $device_token);
+        if(!empty($device_token)){
+            $this->_sendGCM($notification->content, $device_token);
+        }
 
         Flash::success('Notification saved successfully.');
 
