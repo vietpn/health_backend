@@ -109,7 +109,7 @@ class NotificationController extends AppBaseController
     /**
      * Update the specified Notification in storage.
      *
-     * @param  int              $id
+     * @param  int $id
      * @param UpdateNotificationRequest $request
      *
      * @return Response
@@ -153,5 +153,37 @@ class NotificationController extends AppBaseController
         Flash::success('Notification deleted successfully.');
 
         return redirect(route('backend.notifications.index'));
+    }
+
+    // Send notification to Mobile
+    private function _sendGCM($message, $id)
+    {
+        $url = 'https://fcm.googleapis.com/fcm/send';
+
+        $fields = array(
+            'registration_ids' => array(
+                $id
+            ),
+            'data' => array(
+                "message" => $message
+            )
+        );
+        $fields = json_encode($fields);
+
+        $headers = array(
+            'Authorization: key=' . FIREBASE_KEY,
+            'Content-Type: application/json'
+        );
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
+
+        $result = curl_exec($ch);
+        echo $result;
+        curl_close($ch);
     }
 }

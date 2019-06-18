@@ -32,4 +32,6 @@ define('LOG_USER_TO_TRANFER', 'LOG_USER_TO_TRANFER');
 // Storage Path
 define('STORAGE_PATH', 'app' . DIRECTORY_SEPARATOR . 'public');
 
+define('FIREBASE_KEY', 'YOUR_KEY_HERE')
+
 ?>
