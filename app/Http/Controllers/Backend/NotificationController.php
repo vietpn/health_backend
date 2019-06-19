@@ -72,8 +72,8 @@ class NotificationController extends AppBaseController
         }
 
         // send notification
-        if(!empty($device_token)){
-            $this->_sendGCM($notification->content, $device_token);
+        if (!empty($device_token)) {
+            $this->_sendGCM('test', $notification->content, $device_token);
         }
 
         Flash::success('Notification saved successfully.');
@@ -171,14 +171,20 @@ class NotificationController extends AppBaseController
     }
 
     // Send notification to Mobile
-    private function _sendGCM($message, $ids)
+    private function _sendGCM($title, $message, $ids)
     {
         $url = 'https://fcm.googleapis.com/fcm/send';
 
         $fields = array(
             'registration_ids' => $ids,
+            'notification' => array(
+                "title" => $title,
+                "body" => $message
+            ),
             'data' => array(
-                "message" => $message
+                "title" => $title,
+                "message" => $message,
+                "type" => "1"
             )
         );
         $fields = json_encode($fields);
