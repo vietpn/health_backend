@@ -1,10 +1,8 @@
 <table class="table table-responsive table-striped table-bordered table-hover" id="notifications-table">
     <thead>
-        <th>Title</th>
-        <th>Content</th>
-        <th>Status</th>
-        <th>Created At</th>
-        <th>Updated At</th>
+        <th>Tiêu Đề</th>
+        <th>Nội Dung</th>
+        <th>Ngày tạo</th>
         <th colspan="3">Action</th>
     </thead>
     <tbody>
@@ -12,9 +10,7 @@
         <tr>
             <td>{!! $notification->title !!}</td>
             <td>{!! $notification->content !!}</td>
-            <td>{!! $notification->status !!}</td>
             <td>{!! $notification->created_at !!}</td>
-            <td>{!! $notification->updated_at !!}</td>
             <td>
                 {!! Form::open(['route' => ['backend.notifications.destroy', $notification->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

@@ -3,7 +3,7 @@
 @section('header')
 	<section class="content-header">
 		<h1>
-			Quản lý Notifications <span class="text-lowercase">{{ '' }}</span>
+			Quản lý Thông Báo <span class="text-lowercase">{{ '' }}</span>
 		</h1>
 		<ol class="breadcrumb">
 			<li><a href="{{ '' }}" class="text-capitalize">{{ '' }}</a></li>
@@ -24,7 +24,7 @@
                 <div class="clearfix"></div>
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title"><i class="fa fa-home"></i>Notifications</h3>
+                        <h3 class="box-title"><i class="fa fa-home"></i>Thông Báo</h3>
                     </div>
                     <div class="box-body">
                         <p>

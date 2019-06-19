@@ -1,12 +1,12 @@
 <!-- Title Field -->
 <div class="form-group">
-    {!! Form::label('title', 'Title:') !!}
+    {!! Form::label('title', 'Tiêu Đề:') !!}
     {!! Form::text('title', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Content Field -->
 <div class="form-group">
-    {!! Form::label('content', 'Content:') !!}
+    {!! Form::label('content', 'Nội Dung:') !!}
     {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
 </div>
 
