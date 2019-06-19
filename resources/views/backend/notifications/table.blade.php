@@ -1,14 +1,16 @@
 <table class="table table-responsive table-striped table-bordered table-hover" id="notifications-table">
     <thead>
-        <th>Nội dung</th>
-        <th>Trạng thái</th>
-        <th>Ngày taọ</th>
-        <th>Ngày cập nhật</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Status</th>
+        <th>Created At</th>
+        <th>Updated At</th>
         <th colspan="3">Action</th>
     </thead>
     <tbody>
     @foreach($notifications as $notification)
         <tr>
+            <td>{!! $notification->title !!}</td>
             <td>{!! $notification->content !!}</td>
             <td>{!! $notification->status !!}</td>
             <td>{!! $notification->created_at !!}</td>

@@ -6,6 +6,14 @@
 </tr>
 
 
+<!-- Title Field -->
+
+<tr>
+    <td>Title:</td>
+    <td>{!! $notification->title !!}</td>
+</tr>
+
+
 <!-- Content Field -->
 
 <tr>
@@ -17,7 +25,7 @@
 <!-- Status Field -->
 
 <tr>
-    <td>Trạng thái:</td>
+    <td>Status:</td>
     <td>{!! $notification->status !!}</td>
 </tr>
 
@@ -25,7 +33,7 @@
 <!-- Created At Field -->
 
 <tr>
-    <td>Ngày tạo:</td>
+    <td>Created At:</td>
     <td>{!! $notification->created_at !!}</td>
 </tr>
 
@@ -33,7 +41,7 @@
 <!-- Updated At Field -->
 
 <tr>
-    <td>Ngày cập nhật:</td>
+    <td>Updated At:</td>
     <td>{!! $notification->updated_at !!}</td>
 </tr>
 

@@ -73,7 +73,7 @@ class NotificationController extends AppBaseController
 
         // send notification
         if (!empty($device_token)) {
-            $this->_sendGCM('test', $notification->content, $device_token);
+            $this->_sendGCM($notification->title, $notification->content, $device_token);
         }
 
         Flash::success('Notification saved successfully.');
@@ -188,7 +188,7 @@ class NotificationController extends AppBaseController
             )
         );
         $fields = json_encode($fields);
-
+        var_dump($fields);
         $headers = array(
             'Authorization: key=' . FIREBASE_KEY,
             'Content-Type: application/json'

@@ -1,6 +1,12 @@
+<!-- Title Field -->
+<div class="form-group">
+    {!! Form::label('title', 'Title:') !!}
+    {!! Form::text('title', null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Content Field -->
 <div class="form-group">
-    {!! Form::label('content', 'Nội dung:') !!}
+    {!! Form::label('content', 'Content:') !!}
     {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
 </div>
 

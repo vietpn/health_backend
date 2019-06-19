@@ -13,12 +13,12 @@ class Notification extends Model
 {
 
     public $table = 'e_notification';
-    
+
     public $timestamps = false;
 
 
-
     public $fillable = [
+        'title',
         'content',
         'status',
         'created_at',
@@ -32,8 +32,9 @@ class Notification extends Model
      */
     protected $casts = [
         'id' => 'integer',
+        'title' => 'string',
         'content' => 'string',
-        'status' => 'integer'
+        'status' => 'boolean'
     ];
 
     /**
@@ -42,7 +43,7 @@ class Notification extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
@@ -62,5 +63,5 @@ class Notification extends Model
 
         });
     }
-    
+
 }
