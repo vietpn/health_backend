@@ -43,7 +43,8 @@ class Notification extends Model
      * @var array
      */
     public static $rules = [
-
+        'title' => 'required|max:100',
+        'content' => 'required',
     ];
 
     /**
