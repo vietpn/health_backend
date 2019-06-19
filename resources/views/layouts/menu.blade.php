@@ -15,7 +15,7 @@
 </li>
 
 <li class="{{ Request::is('feedback*') ? 'active' : '' }}">
-    <a href="{!! route('backend.feedback.index') !!}"><i class="fa fa-commenting"></i><span>Phẩn Hồi</span></a>
+    <a href="{!! route('backend.feedback.index') !!}"><i class="fa fa-commenting"></i><span>Phản Hồi</span></a>
 </li>
 
 <li class="{{ Request::is('notifications*') ? 'active' : '' }}">
