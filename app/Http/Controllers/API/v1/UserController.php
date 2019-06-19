@@ -62,7 +62,8 @@ class UserController extends AppBaseController
                 $user['token'] = $user->createToken('health')->accessToken;
                 //Get Oauth Access tokens moi nhat
                 $this->profileRepository->updateAccessToken($user);
-
+                // Get all config
+                // $user['config'] = array();
             } else {
                 return $this->sendError(MSG_UNAUTHORIZED, CODE_UNAUTHORIZED);
             }
