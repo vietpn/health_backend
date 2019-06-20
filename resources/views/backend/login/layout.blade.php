@@ -32,10 +32,10 @@
 <body class="hold-transition login-page">
 <div class="login-box" style="width: 480px">
     <div class="login-logo">
-        <a href="../../index2.html"><b>{!! trans('app.login') !!}</b></a>
+        <img src={{url('/images/trong_tin.png')}} width="" height="" alt="" style="margin-top: -140px; margin-bottom: -80px"/>
     </div>
     <div class="login-box-body" style="width: 520px">
-        <p class="login-box-msg">{!! trans('app.sign.in.to.start') !!}</p>
+        <p class="login-box-msg"></p>
         @if($errors->any())
             <div class="alert notify alert-danger alert-dismissible">
                 {{ trans('messages.error') }}
@@ -59,13 +59,13 @@
             <div class="col-xs-4" style="margin-left: 20px">
                 <div class="checkbox icheck">
                     <label>
-                        <input type="checkbox" name="remmember"> {!! trans('app.remember.password') !!}
+                        <input type="checkbox" name="remmember"> Nhớ Mật Khẩu
                     </label>
                 </div>
             </div>
             <!-- /.col -->
             <div class="col-xs-4">
-                {!! Form::submit("Login",['class'=>'btn btn-primary btn-block btn-flat']) !!}
+                {!! Form::submit("Đăng Nhập",['class'=>'btn btn-primary btn-block btn-flat']) !!}
             </div>
             <!-- /.col -->
         </div>

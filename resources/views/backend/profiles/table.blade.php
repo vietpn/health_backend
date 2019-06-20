@@ -1,5 +1,6 @@
 <table class="table table-responsive table-striped table-bordered table-hover" id="profiles-table">
     <thead>
+        <th>ID</th>
         <th>Username</th>
         <th>Tện</th>
         <th>Email</th>
@@ -12,6 +13,7 @@
     <tbody>
     @foreach($profiles as $profile)
         <tr>
+            <td>{!! $profile->id !!}</td>
             <td>{!! $profile->username !!}</td>
             <td>{!! $profile->name !!}</td>
             <td>{!! $profile->email !!}</td>
