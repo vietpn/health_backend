@@ -38,7 +38,6 @@
         <p class="login-box-msg"></p>
         @if($errors->any())
             <div class="alert notify alert-danger alert-dismissible">
-                {{ trans('messages.error') }}
                 <ul>
                     @foreach($errors->all() as $message)
                         <li>{{ $message }}</li>
