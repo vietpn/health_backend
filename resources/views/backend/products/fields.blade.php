@@ -25,10 +25,10 @@
 </div>
 
 <!-- New Price Field -->
-<div class="form-group">
+<!--<div class="form-group">
     {!! Form::label('new_price', 'Giá mới:') !!}
     {!! Form::number('new_price', null, ['class' => 'form-control']) !!}
-</div>
+</div>-->
 
 
 <!-- Amount Field -->

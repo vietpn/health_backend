@@ -4,7 +4,7 @@
         <th>ID</th>
         <th>Ảnh</th>
         <th>Giá</th>
-        <th>Giá mới</th>
+        <!--<th>Giá mới</th>-->
         <th>Số lượng</th>
         <th>Ngày tạo</th>
         <th>Ngày cập nhật</th>
@@ -17,7 +17,7 @@
             <td>{!! $product->id !!}</td>
             <td>{!! Html::image($product->img_path, '',['style' => 'width:80px; height:80px']); !!}</td>
             <td>{!! \App\Define\Systems::formatPrice($product->price) !!}</td>
-            <td>{!! \App\Define\Systems::formatPrice($product->new_price) !!}</td>
+            <!--<td>{!! \App\Define\Systems::formatPrice($product->new_price) !!}</td>-->
             <td>{!! $product->amount !!}</td>
             <td>{!! $product->created_at !!}</td>
             <td>{!! $product->updated_at !!}</td>

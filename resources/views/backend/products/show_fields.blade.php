@@ -32,10 +32,10 @@
 
 <!-- New Price Field -->
 
-<tr>
+<!--<tr>
     <td>Giá mới:</td>
     <td>{!! \App\Define\Systems::formatPrice($product->new_price) !!}</td>
-</tr>
+</tr>-->
 
 <!-- Amount Field -->
 
