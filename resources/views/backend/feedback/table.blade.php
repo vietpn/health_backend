@@ -1,6 +1,6 @@
 <table class="table table-responsive table-striped table-bordered table-hover" id="feedback-table">
     <thead>
-        <th></th>
+        <th>ID</th>
         <th>Username</th>
         <th>Nội dung</th>
         <th>Ngày tạo</th>
