@@ -1,5 +1,6 @@
 <table class="table table-responsive table-striped table-bordered table-hover" id="feedback-table">
     <thead>
+        <th></th>
         <th>Username</th>
         <th>Nội dung</th>
         <th>Ngày tạo</th>
@@ -9,6 +10,7 @@
     <tbody>
     @foreach($feedback as $feedback)
         <tr>
+            <td>{!! $feedback->id !!}</td>
             <td>{!! $feedback->username !!}</td>
             <td>{!! $feedback->content !!}</td>
             <td>{!! $feedback->created_at !!}</td>
