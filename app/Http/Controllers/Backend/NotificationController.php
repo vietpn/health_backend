@@ -189,7 +189,7 @@ class NotificationController extends AppBaseController
             )
         );
         $fields = json_encode($fields);
-        //var_dump($fields);
+        var_dump($fields);
         $headers = array(
             'Authorization: key=' . FIREBASE_KEY,
             'Content-Type: application/json'
@@ -203,8 +203,8 @@ class NotificationController extends AppBaseController
         curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
 
         $result = curl_exec($ch);
-        //var_dump($result);
-        //die;
+        var_dump($result);
+        die;
         curl_close($ch);
     }
 }
