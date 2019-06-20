@@ -73,6 +73,7 @@ class NotificationController extends AppBaseController
 
         // send notification
         if (!empty($device_token)) {
+            $device_token = array_unique($device_token);
             $this->_sendGCM($notification->title, $notification->content, $device_token);
         }
 
