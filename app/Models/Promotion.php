@@ -48,7 +48,7 @@ class Promotion extends Model
      * @var array
      */
     public static $rules = [
-        
+        'title' => 'max:100',
     ];
 
     /**
