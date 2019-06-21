@@ -31,7 +31,7 @@
         $arrImg = explode(',', $feedback->img_path);
         if (!empty($arrImg)) {
             foreach ($arrImg as $img) {
-                echo Html::image($img, '', ['style' => 'width:80px; height:80px']);
+                echo Html::image($img, '', ['style' => 'width:80px; height:80px']) . '&nbsp;&nbsp;';
             }
         } else {
             echo Html::image($feedback->img_path, '', ['style' => 'width:80px; height:80px']);
