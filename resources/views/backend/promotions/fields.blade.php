@@ -27,13 +27,13 @@
 <!-- Code Field -->
 <div class="form-group">
     {!! Form::label('code', 'Mã:') !!}
-    {!! Form::text('code', null, ['class' => 'form-control']) !!}
+    {!! Form::text('code', null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <!-- Value Field -->
 <div class="form-group">
     {!! Form::label('value', 'Giá Trị:') !!}
-    {!! Form::number('value', null, ['class' => 'form-control']) !!}
+    {!! Form::number('value', null, ['class' => 'form-control', 'required', 'min' => '0', 'max' => '100']) !!}
 </div>
 
 <!-- Submit Field -->
