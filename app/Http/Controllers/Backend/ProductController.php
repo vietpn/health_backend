@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Requests\Backend\CreateProductRequest;
 use App\Http\Requests\Backend\UpdateProductRequest;
+use App\Models\Product;
 use App\Repositories\Backend\ProductRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
