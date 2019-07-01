@@ -34,7 +34,7 @@ class ProductController extends AppBaseController
         $this->productRepository->pushCriteria(new RequestCriteria($request));
         //$products = $this->productRepository->all();
 
-        $products = Product::paginate(15);
+        $products = Product::paginate(10);
 
         return view('backend.products.index')
             ->with('products', $products);
