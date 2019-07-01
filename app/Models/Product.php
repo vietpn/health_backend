@@ -64,7 +64,10 @@ class Product extends Model
      */
     public function getImgPathAttribute()
     {
-        return env('APP_STORAGE_URL', '') . $this->attributes['img_path'];
+        if (strpos(\Route::getCurrentRoute()->getActionName(), 'Http\\Controllers\\API') !== false) {
+            $this->attributes['img_path'] = env('APP_STORAGE_URL', '') . $this->attributes['img_path'];
+        }
+        return $this->attributes['img_path'];
     }
 
     /**

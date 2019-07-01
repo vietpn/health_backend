@@ -15,7 +15,7 @@
         <tr>
             <td>{!! $product->id !!}</td>
             <td>{!! $product->name !!}</td>
-            <td>{!! Html::image($product->img_path, '',['style' => 'width:80px; height:80px']); !!}</td>
+            <td>{!! Html::image(\App\Models\BaseModel::getImage( $product->img_path) , '',['style' => 'width:80px; height:80px']); !!}</td>
             <td>{!! \App\Define\Systems::formatPrice($product->price) !!}</td>
             <!--<td>{!! \App\Define\Systems::formatPrice($product->new_price) !!}</td>-->
             <td>{!! $product->amount !!}</td>
