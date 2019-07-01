@@ -12,6 +12,7 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use Illuminate\Support\Facades\Input;
+use DB;
 
 class ProductController extends AppBaseController
 {
@@ -33,8 +34,10 @@ class ProductController extends AppBaseController
     {
         $this->productRepository->pushCriteria(new RequestCriteria($request));
         //$products = $this->productRepository->all();
+        $query = DB::table('e_product')
+            ->orderBy('e_product.id', 'DESC');
 
-        $products = Product::paginate(10);
+        $products = $query->paginate(10);
 
         return view('backend.products.index')
             ->with('products', $products);
