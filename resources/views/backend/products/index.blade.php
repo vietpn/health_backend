@@ -31,10 +31,9 @@
                             <a class="btn btn-primary"  href="{!! route('backend.products.create') !!}">Tạo mới</a>
                         </p>
                             @include('backend.products.table')
-                            {{--<div style="padding-left: 20px;padding-right: 20px;">
-                                    @include('adminlte-templates::common.paginate', ['records' => $products])
-                                </div>
-                            --}}
+                            <div style="padding-left: 20px;padding-right: 20px;">
+                                @include('adminlte-templates::common.paginate', ['records' => $products])
+                            </div>
                     </div>
                 </div>
             </div>
