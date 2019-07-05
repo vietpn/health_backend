@@ -20,6 +20,10 @@
         <td><strong>Gía Trị</strong></td>
         <td align="right">{!! \App\Define\Systems::formatPrice($order->total_price)!!}</td>
     </tr>
+    <tr>
+        <td><strong>Ngày Tạo</strong></td>
+        <td align="right">{!! $order->created_at !!}</td>
+    </tr>
 
     <tr></tr>
     <tr></tr>
