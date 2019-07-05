@@ -1,5 +1,6 @@
-<table class="table table-responsive table-striped table-bordered table-hover" id="profiles-table">
-    <thead>
+<div class="table-responsive">
+    <table class="table table-responsive table-striped table-bordered table-hover" id="profiles-table">
+        <thead>
         <th>ID</th>
         <th>Username</th>
         <th>Tện</th>
@@ -9,9 +10,9 @@
         <th>Ngày tạo</th>
         <th>Ngày cập nhật</th>
         <th colspan="3">Action</th>
-    </thead>
-    <tbody>
-    @foreach($profiles as $profile)
+        </thead>
+        <tbody>
+        @foreach($profiles as $profile)
         <tr>
             <td>{!! $profile->id !!}</td>
             <td>{!! $profile->username !!}</td>
@@ -24,13 +25,17 @@
             <td>
                 {!! Form::open(['route' => ['backend.profiles.destroy', $profile->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
-                    <a href="{!! route('backend.profiles.show', [$profile->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                    <a href="{!! route('backend.profiles.edit', [$profile->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
-                    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                    <a href="{!! route('backend.profiles.show', [$profile->id]) !!}" class='btn btn-default btn-xs'><i
+                                class="glyphicon glyphicon-eye-open"></i></a>
+                    <a href="{!! route('backend.profiles.edit', [$profile->id]) !!}" class='btn btn-default btn-xs'><i
+                                class="glyphicon glyphicon-edit"></i></a>
+                    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn
+                    btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                 </div>
                 {!! Form::close() !!}
             </td>
         </tr>
-    @endforeach
-    </tbody>
-</table>
+        @endforeach
+        </tbody>
+    </table>
+</div>
