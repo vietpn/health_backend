@@ -77,6 +77,16 @@ class OrderController extends AppBaseController
                         $order_detail->order_id = $orders->id;
                         $order_detail->save();
                         $order_details[] = $order_detail->toArray();
+
+                        // reduce product amount
+                        $product = $this->productRepository->findWithoutFail($detail['product_id']);
+                        if (!empty($product)) {
+                            $input = array();
+                            $amount = $product->amount - $detail['amount'];
+                            $amount = ($amount > 0) ? $amount : 0;
+                            $input['amount'] = $amount;
+                            $product = $this->productRepository->update($input, $detail['product_id']);
+                        }
                     }
                 }
             }
