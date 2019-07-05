@@ -118,10 +118,25 @@ class OrderController extends AppBaseController
             return redirect(route('backend.orders.index'));
         }
 
-        Excel::create('order_' . $id, function ($excel) {
+        Excel::create('order_' . $id, function ($excel) use ($order) {
             // Our first sheet
-            $excel->sheet('Sheet1', function ($sheet) {
+            $excel->sheet('Sheet1', function ($sheet) use ($order) {
+                // Font family
+                $sheet->setFontFamily('Comic Sans MS');
 
+                // Set font with ->setStyle()`
+                $sheet->setStyle(array(
+                    'font' => array(
+                        'name' => 'Calibri',
+                        'size' => 12,
+                        'bold' => true
+                    )
+                ));
+#
+                // Manipulate first row
+                $sheet->row(1, array(
+                    'Khách Hàng: ', $order->username
+                ));
             });
         })->export('xls');
     }
