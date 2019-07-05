@@ -24,7 +24,9 @@
         <div class="box-header with-border">
             <h3 class="box-title"><i class="fa fa-home"></i>Chi tiết #<?= $order->id ?></h3>
             <div>
-                <a href="{!! route('backend.orders.index') !!}" class="btn btn-default">Back</a>
+                <a href="{!! route('backend.orders.index', [$order->id]) !!}" class="btn btn-default">Back</a>
+                <a href="{!! route('backend.orders.download', [$order->id]) !!}" class='btn btn-success'><i
+                            class="glyphicon glyphicon-download"></i> Download Excel</a>
             </div>
         </div>
         <div class="box-body">
