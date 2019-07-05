@@ -194,6 +194,8 @@ return [
         Barryvdh\Cors\ServiceProvider::class,
         //Barryvdh\Debugbar\ServiceProvider::class,
 
+        Maatwebsite\Excel\ExcelServiceProvider::class,
+
     ],
 
     /*
@@ -250,7 +252,7 @@ return [
         'Sentinel' => Cartalyst\Sentinel\Laravel\Facades\Sentinel::class,
         'Elasticsearch' => Cviebrock\LaravelElasticsearch\Facade::class,
         //'Debugbar' => Barryvdh\Debugbar\Facade::class,
-
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];

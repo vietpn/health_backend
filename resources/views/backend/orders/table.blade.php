@@ -23,6 +23,8 @@
             <td>
                 {!! Form::open(['route' => ['backend.orders.destroy', $order->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
+        <!--            <a href="{!! route('backend.orders.download', [$order->id]) !!}" class='btn btn-default btn-xs'><i
+                                class="glyphicon glyphicon-download"></i></a>-->
                     <a href="{!! route('backend.orders.show', [$order->id]) !!}" class='btn btn-default btn-xs'><i
                                 class="glyphicon glyphicon-eye-open"></i></a>
                     <a href="{!! route('backend.orders.edit', [$order->id]) !!}" class='btn btn-default btn-xs'><i

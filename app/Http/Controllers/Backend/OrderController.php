@@ -12,6 +12,7 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class OrderController extends AppBaseController
 {
@@ -101,6 +102,28 @@ class OrderController extends AppBaseController
         return view('backend.orders.show')
             ->with('order', $order)
             ->with('orderDetails', $orderDetails);
+    }
+
+    public function download($id)
+    {
+        $query = DB::table('e_order')
+            ->leftJoin('e_profile', 'e_profile.id', '=', 'e_order.profile_id')
+            ->select('e_order.*', 'e_profile.username')
+            ->where('e_order.id', '=', $id);
+        $order = $query->first();
+
+        if (empty($order)) {
+            Flash::error('Order not found');
+
+            return redirect(route('backend.orders.index'));
+        }
+
+        Excel::create('order_' . $id, function ($excel) {
+            // Our first sheet
+            $excel->sheet('Sheet1', function ($sheet) {
+
+            });
+        })->export('xls');
     }
 
     /**

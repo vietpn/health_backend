@@ -63,6 +63,7 @@ Route::group(['prefix' => 'admin'], function () {
             Route::delete('backend/orders/{orders}', ['as'=> 'orders.destroy', 'uses' => 'Backend\OrderController@destroy']);
             Route::get('backend/orders/{orders}', ['as'=> 'orders.show', 'uses' => 'Backend\OrderController@show']);
             Route::get('backend/orders/{orders}/edit', ['as'=> 'orders.edit', 'uses' => 'Backend\OrderController@edit']);
+            Route::get('backend/orders/{orders}/download', ['as'=> 'orders.download', 'uses' => 'Backend\OrderController@download']);
 
             // Notification
             Route::get('backend/notifications', ['as'=> 'notifications.index', 'uses' => 'Backend\NotificationController@index']);
