@@ -7,8 +7,6 @@
         <th>Email</th>
         <th>Số ĐT</th>
         <th>Ngày sinh</th>
-        <th>Ngày tạo</th>
-        <th>Ngày cập nhật</th>
         <th colspan="3">Action</th>
         </thead>
         <tbody>
@@ -20,8 +18,6 @@
             <td>{!! $profile->email !!}</td>
             <td>{!! $profile->phone_number !!}</td>
             <td>{!! $profile->birthday !!}</td>
-            <td>{!! $profile->created_at !!}</td>
-            <td>{!! $profile->updated_at !!}</td>
             <td>
                 {!! Form::open(['route' => ['backend.profiles.destroy', $profile->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

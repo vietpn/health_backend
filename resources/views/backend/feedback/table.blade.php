@@ -5,7 +5,6 @@
         <th>Username</th>
         <th>Nội dung</th>
         <th>Ngày tạo</th>
-        <th>Ngày cập nhật</th>
         <th colspan="3">Action</th>
         </thead>
         <tbody>
@@ -15,7 +14,6 @@
             <td>{!! $feedback->username !!}</td>
             <td>{!! $feedback->content !!}</td>
             <td>{!! $feedback->created_at !!}</td>
-            <td>{!! $feedback->updated_at !!}</td>
             <td>
                 {!! Form::open(['route' => ['backend.feedback.destroy', $feedback->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
