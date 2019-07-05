@@ -129,7 +129,6 @@ class OrderController extends AppBaseController
                     'font' => array(
                         'name' => 'Calibri',
                         'size' => 12,
-                        'bold' => true
                     )
                 ));
 #
