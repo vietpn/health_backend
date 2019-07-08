@@ -25,7 +25,7 @@
 <!-- Email Field -->
 
 <tr>
-    <td>Email:</td>
+    <td>Địa Chỉ:</td>
     <td>{!! $profile->email !!}</td>
 </tr>
 

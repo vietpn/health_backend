@@ -4,7 +4,7 @@
         <th>ID</th>
         <th>Username</th>
         <th>Tện</th>
-        <th>Email</th>
+        <th>Địa Chỉ</th>
         <th>Số ĐT</th>
         <th>Ngày sinh</th>
         <th colspan="3">Action</th>

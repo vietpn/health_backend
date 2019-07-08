@@ -12,8 +12,8 @@
 
 <!-- Email Field -->
 <div class="form-group">
-    {!! Form::label('email', 'Email:') !!}
-    {!! Form::email('email', null, ['class' => 'form-control']) !!}
+    {!! Form::label('email', 'Địa Chỉ:') !!}
+    {!! Form::textarea('email', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Phone Number Field -->
