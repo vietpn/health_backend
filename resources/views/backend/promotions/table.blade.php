@@ -26,13 +26,13 @@
             <td>{!! $promotion->updated_at !!}</td>
             <td>
                 {!! Form::open(['route' => ['backend.promotions.destroy', $promotion->id], 'method' => 'delete']) !!}
-                <div class='btn-group'>
-                    <a href="{!! route('backend.promotions.show', [$promotion->id]) !!}" class='btn btn-default btn-xs'><i
+                <div>
+                    <a href="{!! route('backend.promotions.show', [$promotion->id]) !!}" class='btn btn-default '><i
                                 class="glyphicon glyphicon-eye-open"></i></a>
-                    <a href="{!! route('backend.promotions.edit', [$promotion->id]) !!}" class='btn btn-default btn-xs'><i
+                    <a href="{!! route('backend.promotions.edit', [$promotion->id]) !!}" class='btn btn-default '><i
                                 class="glyphicon glyphicon-edit"></i></a>
                     {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn
-                    btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                    btn-danger ', 'onclick' => "return confirm('Are you sure?')"]) !!}
                 </div>
                 {!! Form::close() !!}
             </td>

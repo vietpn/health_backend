@@ -53,7 +53,7 @@ class Profile extends Model
      */
     public static $rules = [
         'username' => 'required|max:255|unique_name',
-        'email' => 'required|email|unique_email',
+        'name' => 'required',
         'password' => 'required',
     ];
 

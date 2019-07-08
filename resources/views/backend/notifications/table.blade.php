@@ -17,11 +17,11 @@
             <td>
                 {!! Form::open(['route' => ['backend.notifications.destroy', $notification->id], 'method' => 'delete'])
                 !!}
-                <div class='btn-group'>
+                <div'>
                     <a href="{!! route('backend.notifications.show', [$notification->id]) !!}"
-                       class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
+                       class='btn btn-default '><i class="glyphicon glyphicon-eye-open"></i></a>
                     {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn
-                    btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                    btn-danger ', 'onclick' => "return confirm('Are you sure?')"]) !!}
                 </div>
                 {!! Form::close() !!}
             </td>
