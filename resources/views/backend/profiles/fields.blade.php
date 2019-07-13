@@ -10,6 +10,18 @@
     {!! Form::text('name', null, ['class' => 'form-control']) !!}
 </div>
 
+<!-- Address Field -->
+<div class="form-group">
+    {!! Form::label('address', 'Địa Chỉ:') !!}
+    {!! Form:: textarea('address', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Point Field -->
+<div class="form-group">
+    {!! Form::label('point', 'Điểm:') !!}
+    {!! Form::text('point', null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Email Field -->
 <div class="form-group">
     {!! Form::label('email', 'Email:') !!}

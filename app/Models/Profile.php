@@ -23,6 +23,8 @@ class Profile extends Model
         'name',
         'email',
         'phone_number',
+        'address',
+        'point',
         'birthday',
         'password',
         'remember_token',
@@ -40,6 +42,8 @@ class Profile extends Model
         'username' => 'string',
         'name' => 'string',
         'email' => 'string',
+        'address' => 'string',
+        'point' => 'integer',
         'phone_number' => 'string',
         'birthday' => 'date',
         'password' => 'string',
@@ -53,7 +57,8 @@ class Profile extends Model
      */
     public static $rules = [
         'username' => 'required|max:255|unique_name',
-        'email' => 'email|unique_email',
+        'email' => 'email',
+        'name' => 'required',
         'password' => 'required',
     ];
 

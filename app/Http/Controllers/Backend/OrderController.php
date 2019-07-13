@@ -108,7 +108,7 @@ class OrderController extends AppBaseController
     {
         $query = DB::table('e_order')
             ->leftJoin('e_profile', 'e_profile.id', '=', 'e_order.profile_id')
-            ->select('e_order.*', 'e_profile.username')
+            ->select('e_order.*', 'e_profile.username', 'e_profile.phone_number')
             ->where('e_order.id', '=', $id);
         $order = $query->first();
 
@@ -118,9 +118,30 @@ class OrderController extends AppBaseController
             return redirect(route('backend.orders.index'));
         }
 
-        Excel::create('order_' . $id, function ($excel) {
+        $orderDetails = $this->orderDetailRepository->findByField('order_id', $id);
+
+        Excel::create('order_' . $id, function ($excel) use ($order, $orderDetails) {
             // Our first sheet
-            $excel->sheet('Sheet1', function ($sheet) {
+            $excel->sheet('Sheet1', function ($sheet) use ($order, $orderDetails) {
+
+                // Style
+                $sheet->setStyle(array(
+                    'font' => array(
+                        'name' => 'Calibri',
+                        'size' => 13,
+                    )
+                ));
+
+                $sheet->loadView('excel.order')
+                    ->with('order', $order)
+                    ->with('orderDetails', $orderDetails);
+#
+                // Manipulate first row
+//                $sheet->row(1, array('Khách Hàng: ', $order->username));
+//                $sheet->row(2, array('Điện Thoại: ', $order->phone_number));
+//                $sheet->row(3, array('Địa Chỉ: ', ''));
+//                $sheet->row(4, array('Giá Trị: ', $order->total_price));
+//                $sheet->row(5, array('Mã KM: ', $order->promo_code));
 
             });
         })->export('xls');
