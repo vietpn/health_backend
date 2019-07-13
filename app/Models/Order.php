@@ -13,9 +13,8 @@ class Order extends Model
 {
 
     public $table = 'e_order';
-    
-    public $timestamps = false;
 
+    public $timestamps = false;
 
 
     public $fillable = [
@@ -46,7 +45,7 @@ class Order extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
 
@@ -57,6 +56,22 @@ class Order extends Model
     {
         return $this->hasMany(\App\Models\OrderDetail::class);
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function getIdAttribute()
+    {
+        if (strpos(\Route::getCurrentRoute()->getActionName(), 'Http\\Controllers\\API') !== false) {
+            $createdAt = new \DateTime($this->attributes['created_at']);
+            if ($createdAt) {
+                $this->attributes['id'] = $createdAt->format("ymdHis");
+            }
+        }
+        return $this->attributes['id'];
+
+    }
+
 
     /**
      * @inheritdoc

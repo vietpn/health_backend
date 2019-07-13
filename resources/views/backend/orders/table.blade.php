@@ -13,7 +13,16 @@
         <tbody>
         @foreach($orders as $order)
         <tr>
-            <td>{!! $order->id !!}</td>
+            <td>
+                <?php
+                $createdAt = new \DateTime($order->created_at);
+                if ($createdAt) {
+                    echo $createdAt->format("ymdHis");
+                } else {
+                    echo $order->id;
+                }
+                ?>
+            </td>
             <td>{!! $order->username !!}</td>
             <td>{!! \App\Define\Systems::formatPrice($order->total_price) !!}</td>
             <td>{!! $order->promo_code !!}</td>

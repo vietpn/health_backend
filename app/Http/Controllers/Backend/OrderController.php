@@ -120,7 +120,14 @@ class OrderController extends AppBaseController
 
         $orderDetails = $this->orderDetailRepository->findByField('order_id', $id);
 
-        Excel::create('order_' . $id, function ($excel) use ($order, $orderDetails) {
+        $createdAt = new \DateTime($order->created_at);
+        if ($createdAt) {
+            $fileName = $createdAt->format("ymdHis");
+        } else {
+            $fileName = 'order_' . $id;
+        }
+
+        Excel::create($fileName, function ($excel) use ($order, $orderDetails) {
             // Our first sheet
             $excel->sheet('Sheet1', function ($sheet) use ($order, $orderDetails) {
 
@@ -135,14 +142,6 @@ class OrderController extends AppBaseController
                 $sheet->loadView('excel.order')
                     ->with('order', $order)
                     ->with('orderDetails', $orderDetails);
-#
-                // Manipulate first row
-//                $sheet->row(1, array('Khách Hàng: ', $order->username));
-//                $sheet->row(2, array('Điện Thoại: ', $order->phone_number));
-//                $sheet->row(3, array('Địa Chỉ: ', ''));
-//                $sheet->row(4, array('Giá Trị: ', $order->total_price));
-//                $sheet->row(5, array('Mã KM: ', $order->promo_code));
-
             });
         })->export('xls');
     }

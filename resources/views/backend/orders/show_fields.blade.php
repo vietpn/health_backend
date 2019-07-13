@@ -2,7 +2,16 @@
 
 <tr>
     <td>Id:</td>
-    <td>{!! $order->id !!}</td>
+    <td>
+        <?php
+        $createdAt = new \DateTime($order->created_at);
+        if ($createdAt) {
+            echo $createdAt->format("ymdHis");
+        } else {
+            echo $order->id;
+        }
+        ?>
+    </td>
 </tr>
 
 
