@@ -31,7 +31,23 @@ class BaseModel extends Model
     {
         $arr = BaseModel::getStatusList();
         if (isset($arr[$status])) {
-            return $arr[$status];
+            switch ($status) {
+                case self::STATUS_WAIT:
+                    return '<span class="label label-warning">' . $arr[$status] . '</span>';
+                    break;
+                case self::STATUS_CONFIRM:
+                    return '<span class="label label-primary">' . $arr[$status] . '</span>';
+                    break;
+                case self::STATUS_DELETE:
+                    return '<span class="label label-danger">' . $arr[$status] . '</span>';
+                    break;
+                case self::STATUS_DONE:
+                    return '<span class="label label-success">' . $arr[$status] . '</span>';
+                    break;
+                default:
+                    return '<span class="label label-default">' . $arr[$status] . '</span>';
+                    break;
+            }
         } else {
             return "N/A";
         }
