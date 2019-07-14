@@ -18,7 +18,9 @@
 
 <tr>
     <td>Ảnh:</td>
-    <td>{!! Html::image($product->img_path, '',['style' => 'width:80px; height:80px']) !!}</td>
+    <td>{!! Html::image(\App\Models\BaseModel::getImage( $product->img_path) , '',['style' => 'width:80px;
+        height:80px']); !!}
+    </td>
 </tr>
 
 
