@@ -16,6 +16,8 @@ class Order extends Model
 
     public $timestamps = false;
 
+    protected $appends = ['order_id'];
+
 
     public $fillable = [
         'profile_id',
@@ -60,16 +62,16 @@ class Order extends Model
     /**
      * @inheritdoc
      */
-    public function getIdAttribute()
+    public function getOrderIdAttribute()
     {
+        $orderId = '';
         if (strpos(\Route::getCurrentRoute()->getActionName(), 'Http\\Controllers\\API') !== false) {
             $createdAt = new \DateTime($this->attributes['created_at']);
             if ($createdAt) {
-                $this->attributes['id'] = $createdAt->format("ymdHis");
+                $orderId = $createdAt->format("ymdHis");
             }
         }
-        return $this->attributes['id'];
-
+        return $orderId;
     }
 
 

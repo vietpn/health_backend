@@ -24,11 +24,13 @@ class OrderController extends AppBaseController
     /** @var  OrderRepository */
     private $orderRepository;
     private $productRepository;
+    private $orderDetailRepository;
 
-    public function __construct(OrderRepository $orderRepo, ProductRepository $productRepo)
+    public function __construct(OrderRepository $orderRepo, ProductRepository $productRepo, OrderDetailRepository $orderDetailRepo)
     {
         $this->orderRepository = $orderRepo;
         $this->productRepository = $productRepo;
+        $this->orderDetailRepository = $orderDetailRepo;
     }
 
     /**
@@ -133,12 +135,29 @@ class OrderController extends AppBaseController
 
         /** @var Order $order */
         $order = $this->orderRepository->findWithoutFail($id);
-
         if (empty($order)) {
             return $this->sendError('Order not found');
         }
 
+        // update order
         $order = $this->orderRepository->update($input, $id);
+
+        // update order detail
+        if (!empty($input['order_detail'])) {
+            $details = json_decode($input['order_detail'], true);
+            if ($details) {
+                foreach ($details as $detail) {
+                    if (isset($detail['id']) && isset($detail['amount'])) {
+                        $orderDetail = $this->orderDetailRepository->findWithoutFail($detail['id']);
+                        if (!empty($orderDetail) && $orderDetail->order_id == $id) {
+                            $this->orderDetailRepository->update(array('amount' => $detail['amount']), $detail['id']);
+                        }
+                    }
+                }
+            }
+        }
+
+        $order['order_detail'] = $order->orderDetail()->get();
 
         return $this->sendResponse($order->toArray(), 'Order updated successfully');
     }
