@@ -7,7 +7,7 @@
 <!-- Total Price Field -->
 <div class="form-group">
     {!! Form::label('total_price', 'Giá:') !!}
-    <div>{!! \App\Define\Systems::formatPrice($order->total_price) !!}</div>
+    {!! Form::number('total_price', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Promo Code Field -->
@@ -19,7 +19,8 @@
 <!-- Status Field -->
 <div class="form-group">
     {!! Form::label('status', 'Trạng thái:') !!}
-    {!! Form::select('status', \App\Models\BaseModel::getStatusList(), isset($order) ? intval($order->status) : null, ['class' => 'form-control', 'style'=>'width:300px']) !!}
+    {!! Form::select('status', \App\Models\BaseModel::getStatusList(), isset($order) ? intval($order->status) : null,
+    ['class' => 'form-control']) !!}
 </div>
 
 <div class="row" style="padding-left: 20px; padding-right: 20px">
@@ -35,9 +36,14 @@
             <tr>
                 <td>{!! $orderDetail['product_id']['id'] !!}</td>
                 <td>{!! $orderDetail['product_id']['name'] !!}</td>
-                <td>{!! Html::image(\App\Models\BaseModel::getImage($orderDetail['product_id']['img_path']) , '',['style' => 'width:80px; height:80px']); !!}</td>
-                <td>{!! $orderDetail->amount !!}</td>
-                <td>{!! $orderDetail['product_id']['price'] !!}</td>
+                <td>{!! Html::image(\App\Models\BaseModel::getImage($orderDetail['product_id']['img_path']) ,
+                    '',['style' => 'width:80px; height:80px']); !!}
+                </td>
+                <td>
+                    <input class="form-control" type="number" name="order_detail[<?php echo $orderDetail['id']; ?>]"
+                           value="<?php echo $orderDetail->amount; ?>" style="width: 80px">
+                </td>
+                <td>{!! \App\Define\Systems::formatPrice($orderDetail['product_id']['price']) !!}</td>
             </tr>
         <?php } ?>
 

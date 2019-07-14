@@ -21,7 +21,7 @@ class Systems
 
         if ($price == '' || $price == 0)
             return '0';
-        return number_format($price, $decimal, '.', ',');
+        return number_format($price, $decimal, '.', ',') . ' VND';
     }
 
 }
