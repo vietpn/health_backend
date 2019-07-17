@@ -1,6 +1,19 @@
 <html>
 <table>
     <tr>
+        <td><strong>ID</strong></td>
+        <td align="right">
+            <?php
+            $createdAt = new \DateTime($order->created_at);
+            if ($createdAt) {
+                echo $createdAt->format("ymdHis");
+            } else {
+                echo $order->id;
+            }
+            ?>
+        </td>
+    </tr>
+    <tr>
         <td><strong>Khách Hàng</strong></td>
         <td align="right">{!! $order->username !!}</td>
     </tr>
