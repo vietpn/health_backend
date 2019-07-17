@@ -184,6 +184,7 @@ class OrderController extends AppBaseController
     public function update($id, UpdateOrderRequest $request)
     {
         $order = $this->orderRepository->findWithoutFail($id);
+        $input = $request->all();
 
         if (empty($order)) {
             Flash::error('Order not found');
@@ -191,7 +192,12 @@ class OrderController extends AppBaseController
             return redirect(route('backend.orders.index'));
         }
 
-        $order = $this->orderRepository->update($request->all(), $id);
+        $order = $this->orderRepository->update($input, $id);
+        if (isset($input['order_detail'])) {
+            foreach ($input['order_detail'] as $key => $value) {
+                $this->orderDetailRepository->update(array('amount' => $value), $key);
+            }
+        }
 
         Flash::success('Order updated successfully.');
 
