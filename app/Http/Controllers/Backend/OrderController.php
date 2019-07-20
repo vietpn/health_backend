@@ -4,11 +4,14 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Requests\Backend\CreateOrderRequest;
 use App\Http\Requests\Backend\UpdateOrderRequest;
+use App\Models\BaseModel;
 use App\Repositories\Backend\OrderDetailRepository;
 use App\Repositories\Backend\OrderRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Repositories\Backend\ProfileRepository;
 use Illuminate\Http\Request;
 use Flash;
+use phpDocumentor\Reflection\Types\Self_;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use DB;
@@ -19,11 +22,13 @@ class OrderController extends AppBaseController
     /** @var  OrderRepository */
     private $orderRepository;
     private $orderDetailRepository;
+    private $profileRepository;
 
-    public function __construct(OrderRepository $orderRepo, OrderDetailRepository $orderDetailRepo)
+    public function __construct(OrderRepository $orderRepo, OrderDetailRepository $orderDetailRepo, ProfileRepository $profileRepo)
     {
         $this->orderRepository = $orderRepo;
         $this->orderDetailRepository = $orderDetailRepo;
+        $this->profileRepository = $profileRepo;
     }
 
     /**
@@ -193,6 +198,16 @@ class OrderController extends AppBaseController
         }
 
         $order = $this->orderRepository->update($input, $id);
+
+        if (isset($order) && $order->status == BaseModel::STATUS_DONE) {
+            $profile = $this->profileRepository->find($order->profile_id);
+            if (isset($profile)) {
+                $bonus = round($order->total_price / BONUS_POINT);
+                $point = $profile->point + $bonus;
+                $this->profileRepository->update(array('point' => $point), $order->profile_id);
+            }
+        }
+
         if (isset($input['order_detail'])) {
             foreach ($input['order_detail'] as $key => $value) {
                 $this->orderDetailRepository->update(array('amount' => $value), $key);
