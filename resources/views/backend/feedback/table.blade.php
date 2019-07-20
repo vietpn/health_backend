@@ -4,6 +4,7 @@
         <th>ID</th>
         <th>Username</th>
         <th>Nội dung</th>
+        <th>Trạng thái</th>
         <th>Ngày tạo</th>
         <th colspan="3">Action</th>
         </thead>
@@ -13,6 +14,7 @@
             <td>{!! $feedback->id !!}</td>
             <td>{!! $feedback->username !!}</td>
             <td>{!! $feedback->content !!}</td>
+            <td>{!! \App\Models\BaseModel::getStatusFeedBack($feedback->status) !!}</td>
             <td>{!! $feedback->created_at !!}</td>
             <td>
                 {!! Form::open(['route' => ['backend.feedback.destroy', $feedback->id], 'method' => 'delete']) !!}

@@ -13,15 +13,15 @@ class Feedback extends Model
 {
 
     public $table = 'e_feedback';
-    
-    public $timestamps = false;
 
+    public $timestamps = false;
 
 
     public $fillable = [
         'profile_id',
         'content',
         'img_path',
+        'status',
         'created_at',
         'updated_at'
     ];
@@ -35,7 +35,8 @@ class Feedback extends Model
         'id' => 'integer',
         'profile_id' => 'integer',
         'content' => 'string',
-        'img_path' => 'string'
+        'img_path' => 'string',
+        'status' => 'integer',
     ];
 
     /**
@@ -44,7 +45,7 @@ class Feedback extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
@@ -52,8 +53,8 @@ class Feedback extends Model
      */
     public function getImgPathAttribute()
     {
-        $arrImg =  explode(',', $this->attributes['img_path']);
-        if(!empty($arrImg)){
+        $arrImg = explode(',', $this->attributes['img_path']);
+        if (!empty($arrImg)) {
             return $arrImg;
         } else {
             return $this->attributes['img_path'];

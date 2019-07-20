@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Requests\Backend\CreateFeedbackRequest;
 use App\Http\Requests\Backend\UpdateFeedbackRequest;
+use App\Models\BaseModel;
 use App\Repositories\Backend\FeedbackRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -92,6 +93,9 @@ class FeedbackController extends AppBaseController
             return redirect(route('backend.feedback.index'));
         }
 
+        $this->feedbackRepository->update(array('status' => BaseModel::STATUS_FEEDBACK_READED), $id);
+
+
         return view('backend.feedback.show')->with('feedback', $feedback);
     }
 
@@ -118,7 +122,7 @@ class FeedbackController extends AppBaseController
     /**
      * Update the specified Feedback in storage.
      *
-     * @param  int              $id
+     * @param  int $id
      * @param UpdateFeedbackRequest $request
      *
      * @return Response

@@ -19,6 +19,9 @@ class BaseModel extends Model
     const STATUS_DELETE = 2;
     const STATUS_DONE = 3;
 
+    const STATUS_FEEDBACK_NEW = 0;
+    const STATUS_FEEDBACK_READED = 1;
+
     public static function getImage($src, $width = 80, $height = 80)
     {
         if (empty($src)) {
@@ -60,6 +63,32 @@ class BaseModel extends Model
             self::STATUS_CONFIRM => 'Xác Nhận',
             self::STATUS_DELETE => 'Huỷ',
             self::STATUS_DONE => 'Đã Giao Hàng'
+        ];
+    }
+
+
+    public static function getStatusFeedback($status)
+    {
+        $arr = BaseModel::getStatusFeedBackList();
+        if (isset($arr[$status])) {
+            switch ($status) {
+                case self::STATUS_FEEDBACK_NEW:
+                    return '<span class="label label-danger">' . $arr[$status] . '</span>';
+                    break;
+                case self::STATUS_FEEDBACK_READED:
+                    return '<span class="label label-success">' . $arr[$status] . '</span>';
+                    break;
+            }
+        } else {
+            return "N/A";
+        }
+    }
+
+    public static function getStatusFeedBackList()
+    {
+        return [
+            self::STATUS_FEEDBACK_NEW => 'New',
+            self::STATUS_FEEDBACK_READED => 'Đã Đọc',
         ];
     }
 
