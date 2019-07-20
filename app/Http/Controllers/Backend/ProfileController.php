@@ -109,7 +109,7 @@ class ProfileController extends AppBaseController
     /**
      * Update the specified Profile in storage.
      *
-     * @param  int              $id
+     * @param  int $id
      * @param UpdateProfileRequest $request
      *
      * @return Response
@@ -117,6 +117,7 @@ class ProfileController extends AppBaseController
     public function update($id, UpdateProfileRequest $request)
     {
         $profile = $this->profileRepository->findWithoutFail($id);
+        $input = $request->all();
 
         if (empty($profile)) {
             Flash::error('Profile not found');
@@ -124,7 +125,11 @@ class ProfileController extends AppBaseController
             return redirect(route('backend.profiles.index'));
         }
 
-        $profile = $this->profileRepository->update($request->all(), $id);
+        if (empty($input['password'])) {
+            unset($input['password']);
+        }
+
+        $profile = $this->profileRepository->update($input, $id);
 
         Flash::success('Profile updated successfully.');
 
