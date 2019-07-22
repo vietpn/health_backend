@@ -142,16 +142,22 @@ class OrderController extends AppBaseController
         // update order
         $order = $this->orderRepository->update($input, $id);
 
+        // delete all order detail
+        $this->orderDetailRepository->deleteWhere(array('order_id' => $order->id));
+
         // update order detail
+        $order_details = array();
         if (!empty($input['order_detail'])) {
             $details = json_decode($input['order_detail'], true);
             if ($details) {
                 foreach ($details as $detail) {
-                    if (isset($detail['id']) && isset($detail['amount'])) {
-                        $orderDetail = $this->orderDetailRepository->findWithoutFail($detail['id']);
-                        if (!empty($orderDetail) && $orderDetail->order_id == $id) {
-                            $this->orderDetailRepository->update(array('amount' => $detail['amount']), $detail['id']);
-                        }
+                    if (isset($detail['product_id']) && isset($detail['amount'])) {
+                        $order_detail = new OrderDetail();
+                        $order_detail->product_id = $detail['product_id'];
+                        $order_detail->amount = $detail['amount'];
+                        $order_detail->order_id = $order->id;
+                        $order_detail->save();
+                        $order_details[] = $order_detail->toArray();
                     }
                 }
             }
