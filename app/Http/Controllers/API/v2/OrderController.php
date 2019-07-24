@@ -87,7 +87,7 @@ class OrderController extends AppBaseController
                             $amount = $product->amount - $detail['amount'];
                             $amount = ($amount > 0) ? $amount : 0;
                             $input['amount'] = $amount;
-                            $product = $this->productRepository->update($input, $detail['product_id']);
+                            $this->productRepository->update($input, $detail['product_id']);
                         }
                     }
                 }

@@ -8,10 +8,10 @@ use App\Models\BaseModel;
 use App\Repositories\Backend\OrderDetailRepository;
 use App\Repositories\Backend\OrderRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Repositories\Backend\ProductRepository;
 use App\Repositories\Backend\ProfileRepository;
 use Illuminate\Http\Request;
 use Flash;
-use phpDocumentor\Reflection\Types\Self_;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use DB;
@@ -23,12 +23,17 @@ class OrderController extends AppBaseController
     private $orderRepository;
     private $orderDetailRepository;
     private $profileRepository;
+    private $productRepository;
 
-    public function __construct(OrderRepository $orderRepo, OrderDetailRepository $orderDetailRepo, ProfileRepository $profileRepo)
+    public function __construct(OrderRepository $orderRepo,
+                                OrderDetailRepository $orderDetailRepo,
+                                ProfileRepository $profileRepo,
+                                ProductRepository $productRepo)
     {
         $this->orderRepository = $orderRepo;
         $this->orderDetailRepository = $orderDetailRepo;
         $this->profileRepository = $profileRepo;
+        $this->productRepository = $productRepo;
     }
 
     /**
@@ -211,6 +216,15 @@ class OrderController extends AppBaseController
         if (isset($input['order_detail'])) {
             foreach ($input['order_detail'] as $key => $value) {
                 $this->orderDetailRepository->update(array('amount' => $value), $key);
+                $orderDetail = $this->orderDetailRepository->findWithoutFail($key);
+                $product = $this->productRepository->findWithoutFail($orderDetail->product_id['id']);
+                if (!empty($product)) {
+                    $input = array();
+                    $amount = $product->amount - $orderDetail->amount;
+                    $amount = ($amount > 0) ? $amount : 0;
+                    $input['amount'] = $amount;
+                    $this->productRepository->update($input, $orderDetail->product_id['id']);
+                }
             }
         }
 
