@@ -174,10 +174,13 @@ class NotificationController extends AppBaseController
     // Send notification to Mobile
     private function _sendGCM($title, $message, $ids)
     {
+        $tmp = [];
+        foreach ($ids as $key => $val) {
+            $tmp[] = $val;
+        }
         $url = 'https://fcm.googleapis.com/fcm/send';
-
         $fields = array(
-            'registration_ids' => $ids,
+            'registration_ids' => $tmp,
             'notification' => array(
                 "title" => $title,
                 "body" => $message
@@ -194,9 +197,9 @@ class NotificationController extends AppBaseController
             'Content-Type: application/json'
         );
 
-        var_dump($url);
-        var_dump($fields);
-        var_dump($headers);
+        //var_dump($url);
+        //var_dump($fields);
+        //var_dump($headers);
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
@@ -206,8 +209,8 @@ class NotificationController extends AppBaseController
         curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
 
         $result = curl_exec($ch);
-        var_dump($result);
-        die;
+        //var_dump($result);
+        //die;
         curl_close($ch);
     }
 }
