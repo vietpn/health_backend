@@ -207,7 +207,7 @@ class OrderController extends AppBaseController
         if (isset($order) && $order->status == BaseModel::STATUS_DONE) {
             $profile = $this->profileRepository->find($order->profile_id);
             if (isset($profile)) {
-                $bonus = round($order->total_price / BONUS_POINT);
+                $bonus = floor($order->total_price / BONUS_POINT);
                 $point = $profile->point + $bonus;
                 $this->profileRepository->update(array('point' => $point), $order->profile_id);
             }
