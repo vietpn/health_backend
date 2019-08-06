@@ -32,15 +32,18 @@ class ProductController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $this->productRepository->pushCriteria(new RequestCriteria($request));
-        //$products = $this->productRepository->all();
-        $query = DB::table('e_product')
-            ->orderBy('e_product.id', 'DESC');
+        $name = Input::get('name', '');
+
+        $query = Product::select();
+
+        if (!empty($name)) {
+            $query->where('name', 'like', '%' . $name . '%');
+        }
 
         $products = $query->paginate(10);
 
         return view('backend.products.index')
-            ->with('products', $products);
+            ->with(['products' => $products, 'name' => $name]);
     }
 
     /**

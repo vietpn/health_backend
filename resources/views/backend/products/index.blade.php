@@ -21,6 +21,8 @@
 
                 @include('flash::message')
 
+                @include('backend.products.search')
+
                 <div class="clearfix"></div>
                 <div class="box box-primary">
                     <div class="box-header with-border">
