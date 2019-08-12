@@ -9,7 +9,10 @@
     <td></td>
     <td colspan="4" align="center" style="">Lô 46 MBQH 90 Phường Đông Vệ-tp Thanh Hóa-Thanh Hóa</td>
 </tr>
-<tr></tr>
+<tr>
+    <td></td>
+    <td colspan="4"></td>
+</tr>
 <tr>
     <td align="center"><strong>ID</strong></td>
     <td colspan="4" align="center">
