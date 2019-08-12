@@ -79,13 +79,8 @@
     <td></td>
     <td></td>
     <td></td>
-    <td align="center">Tổng tiền</td>
+    <td align="center"><strong>Tổng tiền</strong></td>
     <td align="center">{!! \App\Define\Systems::formatPrice($order->total_price)!!}</td>
 </tr>
 </body>
-<style>
-    tr > td {
-        border-bottom: 3px solid #000000;
-    }
-</style>
 </html>

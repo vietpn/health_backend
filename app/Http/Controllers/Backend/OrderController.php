@@ -137,9 +137,12 @@ class OrderController extends AppBaseController
             $fileName = 'order_' . $id;
         }
 
-        Excel::create($fileName, function ($excel) use ($order, $orderDetails) {
+        $size = count($orderDetails);
+        $border = 13 + $size + 2;
+
+        Excel::create($fileName, function ($excel) use ($order, $orderDetails, $border) {
             // Our first sheet
-            $excel->sheet('Sheet1', function ($sheet) use ($order, $orderDetails) {
+            $excel->sheet('Sheet1', function ($sheet) use ($order, $orderDetails, $border) {
 
                 // Style
                 $sheet->setStyle(array(
@@ -158,6 +161,10 @@ class OrderController extends AppBaseController
                 $sheet->loadView('excel.order')
                     ->with('order', $order)
                     ->with('orderDetails', $orderDetails);
+
+                $sheet->cells('A' . $border . ':E' . $border, function ($cells) {
+                    $cells->setBorder('', '', 'thin', '');
+                });
             });
         })->export('xls');
     }
