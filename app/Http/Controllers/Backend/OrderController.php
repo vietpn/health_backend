@@ -149,6 +149,12 @@ class OrderController extends AppBaseController
                     )
                 ));
 
+                // add image
+                $objDrawing = new \PHPExcel_Worksheet_Drawing();
+                $objDrawing->setPath(public_path('images/Picture7.png')); //your image path
+                $objDrawing->setCoordinates('A1');
+                $objDrawing->setWorksheet($sheet);
+
                 $sheet->loadView('excel.order')
                     ->with('order', $order)
                     ->with('orderDetails', $orderDetails);
