@@ -118,7 +118,7 @@ class OrderController extends AppBaseController
     {
         $query = DB::table('e_order')
             ->leftJoin('e_profile', 'e_profile.id', '=', 'e_order.profile_id')
-            ->select('e_order.*', 'e_profile.username', 'e_profile.phone_number')
+            ->select('e_order.*', 'e_profile.username', 'e_profile.phone_number', 'e_profile.name')
             ->where('e_order.id', '=', $id);
         $order = $query->first();
 
@@ -144,7 +144,7 @@ class OrderController extends AppBaseController
                 // Style
                 $sheet->setStyle(array(
                     'font' => array(
-                        'name' => 'Calibri',
+                        'name' => 'Times New Roman',
                         'size' => 13,
                     )
                 ));
